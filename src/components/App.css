@@ -1,0 +1,70 @@
+body {
+  background-color: #f5f5f5;
+  font-family: "Indie Flower", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.vertical-red-lines {
+  border-left: 0.5px solid #ffaa9f;
+  border-right: 0.5px solid #ffaa9f;
+  width: 0.2em;
+  height: 100vh;
+  float: left;
+  margin-left: 4em;
+}
+
+.app-title {
+  color: #666;
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+  text-indent: 0.1em;
+  padding-top: 0.8em;
+  line-height: 0.8em;
+  border-bottom: 1px solid lightblue;
+}
+
+/* set padding to 0 to align <li>'s */
+/* set list-style to none to remove <li> bullets */
+.list ul {
+  border: 1px solid transparent;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  line-height: 2em;
+}
+
+.list li {
+  border-bottom: 1px solid lightblue;
+}
+
+li.list-label {
+  color: #444;
+  font-size: 1.5em;
+  text-indent: 0.2em;
+  padding-top: 0.4em;
+  line-height: 0.8em;
+}
+
+li.item-description {
+  color: #222;
+  font-size: 1em;
+  text-indent: 0.4em;
+  padding-top: 1.2em;
+  line-height: 0.7em;
+}
+
+.lists li:hover {
+  background-color: lightgoldenrodyellow;
+  --webkit-transition: all 0.2s;
+  --moz-transition: all 0.2s;
+  --ms-transition: all 0.2;
+  --o-transition: all 0.2s;
+}
+

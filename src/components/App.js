@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
 import Lists from "./Lists";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -58,8 +58,13 @@ class App extends Component {
   render() {
     const {lists} = this.state;
     return (
+      // <App> renders out the app title and <Lists>
+      // <Lists> renders out an array of <List>
+      // <List> renders out a list label and an array of <ListItem>
+      // <ListItem> renders out an item description
       <div className="app">
-        <h1>To-Do App</h1>
+        <div className="vertical-red-lines"/>
+        <p className="app-title">To-Do List</p>
         <Lists lists={lists} />
       </div>
     );

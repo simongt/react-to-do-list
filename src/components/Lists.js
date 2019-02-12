@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ListItems from './ListItems';
+import List from './List';
+import PropTypes from 'prop-types';
 
 export class Lists extends Component {
   render() {
@@ -8,12 +9,17 @@ export class Lists extends Component {
       <div className="lists">
         {lists.map(list => {
           return (
-            <ListItems key={list.id} list={list} />
+            <List key={list.id} list={list} />
           );
         })}
       </div>
     )
   }
+}
+
+// PropTypes
+Lists.propTypes = {
+  lists: PropTypes.array.isRequired
 }
 
 export default Lists;
