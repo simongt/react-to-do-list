@@ -2,7 +2,9 @@
   "name": "to-do-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://simongt.github.io/react-to-do-list/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-scripts": "2.1.3"
