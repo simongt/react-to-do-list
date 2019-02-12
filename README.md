@@ -1,6 +1,8 @@
 <details>
 
-<summary>This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).</summary>
+<summary>This project was bootstrapped with Create React App.</summary>
+
+[Create React App](https://github.com/facebook/create-react-app)
 
 ## Available Scripts
 
