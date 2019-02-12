@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./ToDoApp.css";
-import ToDoLists from "./ToDoLists";
+import "./App.css";
+import Lists from "./Lists";
 
-class ToDoApp extends Component {
+class App extends Component {
   state = {
     lists: [{
       id: 0,
@@ -60,10 +60,10 @@ class ToDoApp extends Component {
     return (
       <div className="app">
         <h1>To-Do App</h1>
-        <ToDoLists lists={lists} />
+        <Lists lists={lists} />
       </div>
     );
   }
 }
 
-export default ToDoApp;
+export default App;

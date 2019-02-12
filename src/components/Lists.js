@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import ToDoListItems from './ToDoListItems';
+import ListItems from './ListItems';
 
-export class ToDoLists extends Component {
+export class Lists extends Component {
   render() {
     const {lists} = this.props;
     return (
       <div className="lists">
         {lists.map(list => {
           return (
-            <ToDoListItems key={list.id} list={list} />
+            <ListItems key={list.id} list={list} />
           );
         })}
       </div>
@@ -16,4 +16,4 @@ export class ToDoLists extends Component {
   }
 }
 
-export default ToDoLists;
+export default Lists;

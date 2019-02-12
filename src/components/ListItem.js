@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export class ToDoListItem extends Component {
+export class ListItem extends Component {
   render() {
     const {item} = this.props;
     return (
@@ -13,4 +13,4 @@ export class ToDoListItem extends Component {
   }
 }
 
-export default ToDoListItem
+export default ListItem
