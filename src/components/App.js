@@ -14,15 +14,15 @@ class App extends Component {
       }, {
         id: 1,
         description: "Shovel snow off driveway and pour salt.",
-        isComplete: false
+        isComplete: true
       }, {
         id: 2,
         description: "Take car to get oil change and smog check.",
         isComplete: false
       }, {
-        id: 2,
+        id: 3,
         description: "Prep lunch meals for week.",
-        isComplete: false
+        isComplete: true
       }]
     }, {
       id: 1,
@@ -34,7 +34,7 @@ class App extends Component {
       }, {
         id: 1,
         description: "Make appointment with son's teacher.",
-        isComplete: false
+        isComplete: true
       }]
     }, {
       id: 2,
@@ -50,7 +50,7 @@ class App extends Component {
       }, {
         id: 2,
         description: "Setup 1-on-1 meeting with manager.",
-        isComplete: false
+        isComplete: true
       }]
     }]
   }

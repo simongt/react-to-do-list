@@ -26,7 +26,7 @@ export class List extends Component {
 
 // PropTypes
 List.propTypes = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.object.isRequired
 }
 
 export default List;
