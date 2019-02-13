@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/react-to-do-list/static/js/runtime~main.52435d08.js"
   },
   {
-    "revision": "a5358796ef83f95957dc7f52e77cad46",
+    "revision": "abaeb91fda718170357e799c878ad0e1",
     "url": "/react-to-do-list/index.html"
   }
 ];
