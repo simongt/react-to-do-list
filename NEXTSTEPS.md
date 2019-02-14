@@ -9,3 +9,6 @@
 * Consider options for storing data
 ** local cache
 ** some database
+* Make everything mobile responsive
+* Test out on different browsers
+* Figure out float alternative for the red vertical lines
