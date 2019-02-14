@@ -4,28 +4,25 @@ import PropTypes from 'prop-types';
 export class ListItem extends Component {
   crossOutCompletedItems = () => {
     const { item } = this.props;
-    if(item.isComplete) {
-      return ({
-        textDecoration: 'line-through',
-        textDecorationStyle: 'wavy',
-        textDecorationColor: 'orangered',
-        transition: '1s'
-      });
-    } else {
-      return ({
-        textDecoration: 'none'
-      });
-    }
+    return item.isComplete ? scribbleOutItem : unscribbleOutItem;
   }
+
   render() {
-    const { item } = this.props;
+    const { toggleItemCompletion } = this.props;
+    const { id, description } = this.props.item;
+    const itemId = id;
     return (
       <div className="list-item">
         <li
           className="item-description"
           style={this.crossOutCompletedItems()}
         >
-          {item.description}
+          <input
+            type="checkbox"
+            onChange={toggleItemCompletion.bind(this, itemId)}
+          />
+          {' '}
+          {description}
         </li>
       </div>
     );
@@ -37,4 +34,16 @@ ListItem.propTypes = {
   item: PropTypes.object.isRequired
 }
 
-export default ListItem
+const scribbleOutItem = {
+  textDecoration: 'line-through',
+  textDecorationStyle: 'wavy',
+  textDecorationColor: 'orangered'
+}
+
+const unscribbleOutItem = {
+  textDecoration: 'none',
+  textDecorationStyle: 'none',
+  textDecorationColor: 'none'
+}
+
+export default ListItem;

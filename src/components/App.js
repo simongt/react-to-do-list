@@ -14,7 +14,7 @@ class App extends Component {
       }, {
         id: 1,
         description: "Shovel snow off driveway and pour salt.",
-        isComplete: true
+        isComplete: false
       }, {
         id: 2,
         description: "Take car to get oil change and smog check.",
@@ -22,7 +22,7 @@ class App extends Component {
       }, {
         id: 3,
         description: "Prep lunch meals for week.",
-        isComplete: true
+        isComplete: false
       }]
     }, {
       id: 1,
@@ -34,7 +34,7 @@ class App extends Component {
       }, {
         id: 1,
         description: "Make appointment with son's teacher.",
-        isComplete: true
+        isComplete: false
       }]
     }, {
       id: 2,
@@ -50,22 +50,41 @@ class App extends Component {
       }, {
         id: 2,
         description: "Setup 1-on-1 meeting with manager.",
-        isComplete: true
+        isComplete: false
       }]
     }]
   }
+  
+  toggleItemCompletion = (listId, itemId) => {
+    this.setState({
+      lists: this.state.lists.map(list => {
+        if(list.id === listId) {
+          list.items.map(item => {
+            if(item.id === itemId) {
+              item.isComplete = !item.isComplete;
+            }
+            return item;
+          })
+        }
+        return list;
+      })
+    });
+  }
 
   render() {
-    const {lists} = this.state;
+    const { lists } = this.state;
     return (
-      // <App> renders out the app title and <Lists>
+      // <App> renders out the title, paper-like styling and <Lists>
       // <Lists> renders out an array of <List>
       // <List> renders out a list label and an array of <ListItem>
       // <ListItem> renders out an item description
       <div className="app">
         <div style={verticalRedLines} />
         <p style={appTitleStyle}>To-Do List Manager</p>
-        <Lists lists={lists} />
+        <Lists
+          lists={lists}
+          toggleItemCompletion={this.toggleItemCompletion}
+        />
       </div>
     );
   }

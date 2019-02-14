@@ -4,16 +4,22 @@ import PropTypes from 'prop-types';
 
 export class List extends Component {
   render() {
-    const {list} = this.props;
+    const { toggleItemCompletion } = this.props;
+    const { id, label, items } = this.props.list;
+    const listId = id;
     return (
       <div className="list">
         <ul>
-          <li className="list-label">{list.label}</li>
+          <li className="list-label">{label}</li>
           <div className="list-items">
             <ul>
-              {list.items.map(item => {
+              {items.map(item => {
                 return (
-                  <ListItem key={item.id} item={item} />
+                  <ListItem
+                    key={item.id}
+                    item={item}
+                    toggleItemCompletion={toggleItemCompletion.bind(this, listId)}
+                  />
                 );
               })}
             </ul>
