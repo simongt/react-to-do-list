@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 
 export class List extends Component {
   render() {
-    const { toggleItemCompletion } = this.props;
+    const { toggleItemCompletion, deleteItem, editItem } = this.props;
     const { id, label, items } = this.props.list;
-    const listId = id;
     return (
       <div className="list">
         <ul>
@@ -18,7 +17,9 @@ export class List extends Component {
                   <ListItem
                     key={item.id}
                     item={item}
-                    toggleItemCompletion={toggleItemCompletion.bind(this, listId)}
+                    toggleItemCompletion={toggleItemCompletion.bind(this, id)}
+                    deleteItem={deleteItem.bind(this, id)}
+                    editItem={editItem.bind(this, id)}
                   />
                 );
               })}

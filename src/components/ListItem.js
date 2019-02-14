@@ -8,9 +8,8 @@ export class ListItem extends Component {
   }
 
   render() {
-    const { toggleItemCompletion } = this.props;
+    const { toggleItemCompletion, deleteItem, editItem } = this.props;
     const { id, description } = this.props.item;
-    const itemId = id;
     return (
       <div className="list-item">
         <li
@@ -20,12 +19,17 @@ export class ListItem extends Component {
           <input
             type="checkbox"
             style={checkboxStyle}
-            onChange={toggleItemCompletion.bind(this, itemId)}
+            onChange={toggleItemCompletion.bind(this, id)}
           />
-          {' '}
-          <span>{description}</span>
-          <button style={deleteButtonStyle}>delete</button>
-          <button style={editButtonStyle}>edit</button>
+          {' ' + description}
+          <button
+            onClick={deleteItem.bind(this, id)}
+            style={deleteButtonStyle}
+          >delete</button>
+          <button
+            onClick={editItem.bind(this, id)}
+            style={editButtonStyle}
+          >edit</button>
         </li>
       </div>
     );
@@ -41,14 +45,14 @@ const scribbleOutItem = {
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'orangered',
-  transition: 'all 2s linear'
+  transition: 'all 0.25s linear'
 }
 
 const unscribbleOutItem = {
-  textDecoration: 'none',
-  textDecorationStyle: 'none',
-  textDecorationColor: 'none',
-  transition: 'all 2s linear'
+  textDecoration: 'line-through',
+  textDecorationStyle: 'wavy',
+  textDecorationColor: 'transparent',
+  transition: 'all 0.25s linear'
 }
 
 const checkboxStyle = {
