@@ -56,19 +56,19 @@ class App extends Component {
   }
   
   toggleItemCompletion = (listId, itemId) => {
-    this.setState({
-      lists: this.state.lists.map(list => {
+    this.setState(prevState => ({
+      lists: prevState.lists.map(list => {
         if(list.id === listId) {
           list.items.map(item => {
             if(item.id === itemId) {
               item.isComplete = !item.isComplete;
             }
             return item;
-          })
+          });
         }
         return list;
       })
-    });
+    }));
   }
 
   render() {
