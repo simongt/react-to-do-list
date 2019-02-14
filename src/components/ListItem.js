@@ -19,10 +19,13 @@ export class ListItem extends Component {
         >
           <input
             type="checkbox"
+            style={checkboxStyle}
             onChange={toggleItemCompletion.bind(this, itemId)}
           />
           {' '}
-          {description}
+          <span>{description}</span>
+          <button style={deleteButtonStyle}>delete</button>
+          <button style={editButtonStyle}>edit</button>
         </li>
       </div>
     );
@@ -37,13 +40,48 @@ ListItem.propTypes = {
 const scribbleOutItem = {
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
-  textDecorationColor: 'orangered'
+  textDecorationColor: 'orangered',
+  transition: 'all 2s linear'
 }
 
 const unscribbleOutItem = {
   textDecoration: 'none',
   textDecorationStyle: 'none',
-  textDecorationColor: 'none'
+  textDecorationColor: 'none',
+  transition: 'all 2s linear'
 }
+
+const checkboxStyle = {
+  marginTop: '-.25em',
+  marginLeft: '.5em',
+  float: 'left'
+}
+
+const editButtonStyle = {
+  background: '#4370db',
+  color: 'white',
+  border: 'none',
+  outline: 'none',
+  borderRadius: '10%',
+  cursor: 'pointer',
+  marginTop: '-1.5em',
+  marginRight: '0.5em',
+  padding: '.5em .85em',
+  float: 'right'
+}
+
+const deleteButtonStyle = {
+  background: '#db4343',
+  color: 'white',
+  border: 'none',
+  outline: 'none',
+  borderRadius: '10%',
+  cursor: 'pointer',
+  marginTop: '-1.5em',
+  marginRight: '1.5em',
+  padding: '.5em .85em',
+  float: 'right'
+}
+
 
 export default ListItem;

@@ -11,4 +11,8 @@
 ** some database
 * Make everything mobile responsive
 * Test out on different browsers
-* Figure out float alternative for the red vertical lines
+* Implement float alternative for the red vertical lines and delete button style
+** Otherwise, clear floats with the "clearfix" hack.
+* Improve paper-like appearance by extending empty lines to end of page
+* Add tabs to view all, active or completed to-do items
+* Improve the top line to include the date on the right side

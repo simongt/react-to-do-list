@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  outline: none;
 }
 
 body {
@@ -31,7 +32,7 @@ li.list-label {
   color: #444;
   font-size: 1.5em;
   text-indent: 0.2em;
-  padding-top: 0.4em;
+  padding-top: 0.35em;
   line-height: 0.8em;
 }
 
@@ -53,3 +54,17 @@ li.item-description {
   --webkit-transition: all 0.2s;
 }
 
+/* @keyframes strike {
+  from {
+    text-decoration-color: transparent;
+  }
+
+  to {
+    text-decoration-color: auto;
+  }
+}
+
+.strike {
+  text-decoration: line-through;
+  animation: strike 2s linear;
+} */
