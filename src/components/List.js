@@ -7,10 +7,10 @@ export class List extends Component {
     const { toggleItemCompletion, deleteItem, editItem } = this.props;
     const { id, label, items } = this.props.list;
     return (
-      <div className="list">
+      <div className='list'>
         <ul>
-          <li className="list-label">{label}</li>
-          <div className="list-items">
+          <li className='list-label'>{label}</li>
+          <div className='list-items'>
             <ul>
               {items.map(item => {
                 return (

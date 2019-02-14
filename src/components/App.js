@@ -1,33 +1,33 @@
-import React, { Component } from "react";
-import Lists from "./Lists";
-import Header from "./layout/Header";
-import "./App.css";
+import React, { Component } from 'react';
+import Lists from './Lists';
+import Header from './layout/Header';
+import './App.css';
 
 class App extends Component {
   state = {
     lists: [{
       id: 0,
-      label: "Personal",
+      label: 'Personal',
       items: [{
         id: 0,
-        description: "Do laundry and fold clothes.",
+        description: 'Do laundry and fold clothes.',
         isComplete: false
       }, {
         id: 1,
-        description: "Shovel snow off driveway and pour salt.",
+        description: 'Shovel snow off driveway and pour salt.',
         isComplete: false
       }, {
         id: 2,
-        description: "Take car to get oil change and smog check.",
+        description: 'Take car to get oil change and smog check.',
         isComplete: false
       }, {
         id: 3,
-        description: "Prep lunch meals for week.",
+        description: 'Prep lunch meals for week.',
         isComplete: false
       }]
     }, {
       id: 1,
-      label: "Family",
+      label: 'Family',
       items: [{
         id: 0,
         description: "Send flowers to wife for Valentine's Day.",
@@ -39,18 +39,18 @@ class App extends Component {
       }]
     }, {
       id: 2,
-      label: "Work",
+      label: 'Work',
       items: [{
         id: 0,
-        description: "Respond to new emails.",
+        description: 'Respond to new emails.',
         isComplete: false
       }, {
         id: 1,
-        description: "Follow up on existing tickets.",
+        description: 'Follow up on existing tickets.',
         isComplete: false
       }, {
         id: 2,
-        description: "Setup 1-on-1 meeting with manager.",
+        description: 'Setup 1-on-1 meeting with manager.',
         isComplete: false
       }]
     }]
@@ -97,7 +97,7 @@ class App extends Component {
   render() {
     const { lists } = this.state;
     return (
-      <div className="app">
+      <div className='app'>
         <Header />
         <Lists
           lists={lists}

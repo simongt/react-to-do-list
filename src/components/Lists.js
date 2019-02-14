@@ -7,7 +7,7 @@ export class Lists extends Component {
   render() {
     const { lists, toggleItemCompletion, deleteItem, editItem } = this.props;
     return (
-      <div className="lists">
+      <div className='lists'>
         {lists.map(list => {
           return (
             <List

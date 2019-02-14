@@ -11,13 +11,13 @@ export class ListItem extends Component {
     const { toggleItemCompletion, deleteItem, editItem } = this.props;
     const { id, description } = this.props.item;
     return (
-      <div className="list-item">
+      <div className='list-item'>
         <li
-          className="item-description"
+          className='item-description'
           style={this.crossOutCompletedItems()}
         >
           <input
-            type="checkbox"
+            type='checkbox'
             style={checkboxStyle}
             onChange={toggleItemCompletion.bind(this, id)}
           />
