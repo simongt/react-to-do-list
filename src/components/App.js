@@ -74,10 +74,6 @@ class App extends Component {
   render() {
     const { lists } = this.state;
     return (
-      // <App> renders out the title, paper-like styling and <Lists>
-      // <Lists> renders out an array of <List>
-      // <List> renders out a list label and an array of <ListItem>
-      // <ListItem> renders out an item description
       <div className="app">
         <div style={verticalRedLines} />
         <p style={appTitleStyle}>To-Do List Manager</p>

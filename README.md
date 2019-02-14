@@ -1,3 +1,12 @@
+# To-Do List Management App
+
+## Component Breakdown
+* `<App>` renders out the title, paper-like styling and `<Lists>`
+* `<Lists>` renders out an array of `<List>`
+* `<List>` renders out a list label and an array of `<ListItem>`
+* `<ListItem>` renders out an item description
+
+
 <details>
 
 <summary>This project was bootstrapped with Create React App.</summary>
