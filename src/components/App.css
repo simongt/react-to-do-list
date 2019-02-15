@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
   outline: none;
+  /* box-sizing: border-box; */
+  /* -moz-box-sizing: border-box; */
+  /* -webkit-box-sizing: border-box; */
 }
 
 body {
@@ -32,8 +35,8 @@ li.list-label {
   color: #444;
   font-size: 1.5em;
   text-indent: 0.2em;
-  padding-top: 0.35em;
-  line-height: 0.8em;
+  padding-top: 0.55em;
+  line-height: 0.65em;
 }
 
 li.item-description {
@@ -44,8 +47,8 @@ li.item-description {
   line-height: 0.7em;
 }
 
-.lists li:hover {
-  background-color: lightgoldenrodyellow;
+.lists li:hover, .insert-new-list:hover {
+  background-color: #fff1ba;
 
   transition:          all 0.2s;
   --o-transition:      all 0.2s;

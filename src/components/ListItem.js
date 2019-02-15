@@ -8,7 +8,11 @@ export class ListItem extends Component {
   }
 
   render() {
-    const { toggleItemCompletion, deleteItem, editItem } = this.props;
+    const {
+      toggleItemCompletion,
+      deleteItem,
+      editItem
+    } = this.props;
     const { id, description } = this.props.item;
     return (
       <div className='list-item'>
@@ -25,7 +29,7 @@ export class ListItem extends Component {
           <button
             onClick={deleteItem.bind(this, id)}
             style={deleteButtonStyle}
-          >delete</button>
+          >x</button>
           <button
             onClick={editItem.bind(this, id)}
             style={editButtonStyle}
@@ -62,11 +66,12 @@ const checkboxStyle = {
 }
 
 const editButtonStyle = {
+  visibility: 'hidden',
   background: '#4370db',
   color: 'white',
-  border: 'none',
+  border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '10%',
+  borderRadius: '0.5em',
   cursor: 'pointer',
   marginTop: '-1.5em',
   marginRight: '0.5em',
@@ -77,9 +82,9 @@ const editButtonStyle = {
 const deleteButtonStyle = {
   background: '#db4343',
   color: 'white',
-  border: 'none',
+  border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '10%',
+  borderRadius: '50%',
   cursor: 'pointer',
   marginTop: '-1.5em',
   marginRight: '1.5em',

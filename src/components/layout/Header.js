@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Header extends Component {
   render() {
@@ -60,4 +60,4 @@ const dateStyle = {
   paddingTop: '.4em'
 }
 
-export default Header
+export default Header;
