@@ -125,7 +125,9 @@ export class Lists extends Component {
 
   deleteList = (listId) => {
     console.log('delete list: ' + listId);
-    // TO-DO
+    this.setState(prevState => ({
+      lists: [...prevState.lists.filter(list => list.id !== listId)]
+    }));
   }
 
   editList = (listId) => {
