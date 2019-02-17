@@ -1,6 +1,6 @@
 # To-Do List Management App
 
-React app that manages to-do lists [(link to live version)[https://simongt.github.io/react-to-do-list/]].
+React app that manages to-do lists (link to live version)[https://simongt.github.io/react-to-do-list/].
 
 ## Component Breakdown
 * `<App>` renders out `<Header>` and `<Lists>`
