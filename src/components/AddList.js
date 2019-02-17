@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SVGIcon from "./SVGIcon";
 
 export class AddList extends Component {
   state = {
@@ -23,15 +24,15 @@ export class AddList extends Component {
 
   render() {
     const { label } = this.state;
-    const placeholder = '(Click here and enter a new to-do list.)';
+    const placeholder = 'Click here to enter a new to-do list category.';
     return (
       <div
         style={insertNewListStyle}
-        className='insert-new-list'
       >
         <form
           onSubmit={this.onSubmit}
           style={insertNewListFormStyle}
+          className='insert-new-list'
         >
           <input
             type='text'
@@ -41,11 +42,18 @@ export class AddList extends Component {
             value={label}
             onChange={this.onChange}
           />
-          <input
-            type='submit'
-            value='+'
-            style={insertButtonStyle}
-          />
+          <label>
+            <input
+              type='submit'
+              value='+'
+            />
+            <SVGIcon
+              name="add"
+              width={25}
+              fill={"#333"}
+              style={insertButtonStyle}
+            />
+          </label>
         </form>
       </div>
     );
@@ -74,19 +82,14 @@ const insertNewListInputStyle = {
 }
 
 const insertButtonStyle = {
-  // flex: '1',
-  background: '#854fbc',
-  color: 'white',
+  // visibility: 'hidden',
+  background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '50%',
   cursor: 'pointer',
-  marginRight: '1.5em',
-  marginLeft: '0.5em',
   marginTop: '-1em',
-  marginBottom: '0.75em',
-  padding: '0.5em 0.85em',
-  float: 'right'
+  marginRight: '1.1em',
+  marginLeft: '0.5em'
 }
 
 export default AddList;

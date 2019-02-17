@@ -57,6 +57,24 @@ li.item-description {
   --webkit-transition: all 0.2s;
 }
 
+input:hover::placeholder {
+  color: blue;
+}
+
+input:active::placeholder {
+  color: red;
+}
+
+input:focus {
+  color: blue;
+}
+
+form.insert-new-item input[type="submit"],
+form.insert-new-list input[type="submit"] {
+  display: none;
+}
+
+
 /* @keyframes strike {
   from {
     text-decoration-color: transparent;

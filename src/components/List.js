@@ -21,11 +21,11 @@ export class List extends Component {
           <li className='list-label'>
             {label}
             <button
-              onClick={deleteList.bind(this, id)}
+              onClick={event => deleteList(id, event)}
               style={deleteButtonStyle}
             >x</button>
             <button
-              onClick={editList.bind(this, id)}
+              onClick={event => editList(id, event)}
               style={editButtonStyle}
             >edit</button>
           </li>
@@ -36,9 +36,9 @@ export class List extends Component {
                   <ListItem
                     key={item.id}
                     item={item}
-                    toggleItemCompletion={toggleItemCompletion.bind(this, id)}
-                    deleteItem={deleteItem.bind(this, id)}
-                    editItem={editItem.bind(this, id)}
+                    toggleItemCompletion={event => toggleItemCompletion(id, event)}
+                    deleteItem={event => deleteItem(id, event)}
+                    editItem={event => editItem(id, event)}
                   />
                 );
               })}
@@ -47,7 +47,7 @@ export class List extends Component {
           <li>
             <AddItem
               list={list}
-              addItem={addItem.bind(this, id)}
+              addItem={(event) => addItem(id, event)}
             />
           </li>
         </ul>

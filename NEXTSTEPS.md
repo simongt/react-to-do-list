@@ -25,5 +25,8 @@
 * Refactor with CSS frameworks: Flexbox + Grid.
 * Refactor with CSS frameworks: Materialize.
 * Fix add list and add item so that they appear automatically.
-* Move state lists to <Lists> instead of <App>, along with appropriate item and list methods: add / edit / delete
-* Add inputs checks for empty strings, duplicate entries
+* Move state lists to <Lists> instead of <App>, along with appropriate item and list methods: add / edit / delete.
+* Add inputs checks for empty strings, duplicate entries.
+* Add reset / clear button.
+* Add up / down buttons to move lists and items.
+* Improve hover margins and padding for new list insertion.

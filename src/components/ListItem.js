@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SVGIcon from "./SVGIcon";
 
 export class ListItem extends Component {
   crossOutCompletedItems = () => {
@@ -23,17 +24,21 @@ export class ListItem extends Component {
           <input
             type='checkbox'
             style={checkboxStyle}
-            onChange={toggleItemCompletion.bind(this, id)}
+            onChange={(event) => toggleItemCompletion(id, event)}
           />
           {' ' + description}
           <button
-            onClick={deleteItem.bind(this, id)}
+            onClick={(event) => deleteItem(id, event)}
             style={deleteButtonStyle}
-          >x</button>
+          >
+            <SVGIcon name="trash" width={25} fill={"#333"} />
+          </button>
           <button
-            onClick={editItem.bind(this, id)}
+            onClick={(event) => editItem(id, event)}
             style={editButtonStyle}
-          >edit</button>
+          >
+            <SVGIcon name="pencil" width={25} fill={"#333"} />
+          </button>
         </li>
       </div>
     );
@@ -67,28 +72,23 @@ const checkboxStyle = {
 
 const editButtonStyle = {
   visibility: 'hidden',
-  background: '#4370db',
-  color: 'white',
+  background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '0.5em',
   cursor: 'pointer',
   marginTop: '-1.5em',
   marginRight: '0.5em',
-  padding: '.5em .85em',
   float: 'right'
 }
 
 const deleteButtonStyle = {
-  background: '#db4343',
-  color: 'white',
+  // visibility: 'hidden',
+  background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '50%',
   cursor: 'pointer',
   marginTop: '-1.5em',
   marginRight: '1.5em',
-  padding: '.5em .85em',
   float: 'right'
 }
 
