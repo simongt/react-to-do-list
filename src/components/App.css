@@ -47,7 +47,8 @@ li.item-description {
   line-height: 0.7em;
 }
 
-.lists li:hover, .insert-new-list:hover {
+/* .insert-new-list:hover, */
+.lists li:hover {
   background-color: #fff1ba;
 
   transition:          all 0.2s;
