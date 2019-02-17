@@ -24,7 +24,7 @@ export class AddItem extends Component {
   render() {
     const { description } = this.state;
     const { label } = this.props.list;
-    const placeholder = '(Click here and enter new item to ' + label + '.)';
+    const placeholder = '(Click here and enter a new to-do item to ' + label + '.)';
     return (
       <div style={insertNewItemStyle}>
         <form 
