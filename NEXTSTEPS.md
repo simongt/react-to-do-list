@@ -4,6 +4,10 @@
   * Add new list / new item insertion feature (plus icon button).
   * Add list / item update feature (pencil icon button).
     * Add alternative update feature by tapping on a list / item to edit it.
+    * Possible approach: 
+      * Have it so that two scenarios are always rendered however only one is visible
+      * On `<li>` click, toggle from text element/block to an input text field and edit / delete icons to submit button.
+        * Decide what to do with checkbox (disable it?).
 * Add animations or transitions for each user event (insert, update, delete).
   * For update, make it so that the item or list being edited appears highlighted.
 * Considers implementing psuedo back-end vs real back-end.
