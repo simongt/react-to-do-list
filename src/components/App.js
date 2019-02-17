@@ -81,11 +81,11 @@ class App extends Component {
       label: listLabel,
       items: []
     }
-    this.setState(prevState => {
-      // lists: [...prevState.lists, newList]
-      prevState.lists.push(newList);
-    });
-    console.log(this.state.lists);
+    this.setState(prevState => ({
+      lists: [...prevState.lists, newList]
+      // prevState.lists.push(newList);
+    }));
+    console.table(this.state.lists);
     
   }
 
@@ -113,7 +113,7 @@ class App extends Component {
 
   addItem = (listId, itemDescription) => {
     console.log('insert new item "' + itemDescription + '" to list: ' + listId);
-    this.setState(prevState => {
+    this.setState(prevState => ({
       lists: prevState.lists.map(list => {
         if (list.id === listId) {
           const newItem = {
@@ -128,8 +128,7 @@ class App extends Component {
         }
         return list;
       })
-    });
-    
+    }));
   }
 
   deleteList = (listId) => {
