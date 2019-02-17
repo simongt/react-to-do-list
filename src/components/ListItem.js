@@ -24,20 +24,20 @@ export class ListItem extends Component {
           <input
             type='checkbox'
             style={checkboxStyle}
-            onChange={(event) => toggleItemCompletion(id, event)}
+            onChange={event => toggleItemCompletion(id, event)}
           />
           {' ' + description}
           <button
-            onClick={(event) => deleteItem(id, event)}
+            onClick={event => deleteItem(id, event)}
             style={deleteButtonStyle}
           >
-            <SVGIcon name="trash" width={25} fill={"#333"} />
+            <SVGIcon name="trash" width={25} fill="#333" />
           </button>
           <button
-            onClick={(event) => editItem(id, event)}
+            onClick={event => editItem(id, event)}
             style={editButtonStyle}
           >
-            <SVGIcon name="pencil" width={25} fill={"#333"} />
+            <SVGIcon name="pencil" width={25} fill="#333" />
           </button>
         </li>
       </div>
@@ -87,7 +87,7 @@ const deleteButtonStyle = {
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
-  marginTop: '-1.5em',
+  marginTop: '-1.6em',
   marginRight: '1.5em',
   float: 'right'
 }

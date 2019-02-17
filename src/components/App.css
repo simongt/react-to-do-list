@@ -49,7 +49,7 @@ li.item-description {
 
 /* .insert-new-list:hover, */
 .lists li:hover {
-  background-color: #fff1ba;
+  background-color: #fff;
 
   transition:          all 0.2s;
   --o-transition:      all 0.2s;

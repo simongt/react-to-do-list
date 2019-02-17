@@ -51,7 +51,7 @@ export class AddItem extends Component {
             <SVGIcon
               name="add"
               width={25}
-              fill={"#333"}
+              fill="#333"
               style={insertButtonStyle}
             />
           </label>

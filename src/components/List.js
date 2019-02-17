@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListItem from './ListItem';
 import AddItem from './AddItem';
 import PropTypes from 'prop-types';
+import SVGIcon from './SVGIcon';
 
 export class List extends Component {
   render() {
@@ -23,11 +24,15 @@ export class List extends Component {
             <button
               onClick={event => deleteList(id, event)}
               style={deleteButtonStyle}
-            >x</button>
+            >
+              <SVGIcon name="trash" width={25} fill="#333" />
+            </button>
             <button
               onClick={event => editList(id, event)}
               style={editButtonStyle}
-            >edit</button>
+            >
+              <SVGIcon name="pencil" width={25} fill="#333" />
+            </button>
           </li>
           <div className='list-items'>
             <ul>
@@ -63,29 +68,23 @@ List.propTypes = {
 
 const editButtonStyle = {
   visibility: 'hidden',
-  background: '#4370db',
-  color: 'white',
+  background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '0.5em',
   cursor: 'pointer',
   marginTop: '-1.1em',
   marginRight: '0.5em',
-  padding: '.5em .85em',
   float: 'right'
 }
 
 const deleteButtonStyle = {
-  visibility: 'hidden',
-  background: '#db4343',
-  color: 'white',
+  // visibility: 'hidden',
+  background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
-  borderRadius: '50%',
   cursor: 'pointer',
   marginTop: '-1.1em',
-  marginRight: '1.5em',
-  padding: '.5em .85em',
+  marginRight: '1.55em',
   float: 'right'
 }
 
