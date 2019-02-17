@@ -23,7 +23,7 @@ export class AddList extends Component {
 
   render() {
     const { label } = this.state;
-    const placeholder = '(Click here and enter a new list label.)';
+    const placeholder = '(Click here and enter a new to-do list.)';
     return (
       <div
         style={insertNewListStyle}
