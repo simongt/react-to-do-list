@@ -76,6 +76,7 @@ const editButtonStyle = {
 }
 
 const deleteButtonStyle = {
+  visibility: 'hidden',
   background: '#db4343',
   color: 'white',
   border: '1px solid transparent',

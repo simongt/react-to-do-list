@@ -74,8 +74,6 @@ class App extends Component {
   }
 
   addList = (listLabel) => {
-  console.log('insert new list: "' + listLabel + '"');
-    // TO-DO
     const newList = {
       id: uuid.v4(),
       label: listLabel,
@@ -83,10 +81,7 @@ class App extends Component {
     }
     this.setState(prevState => ({
       lists: [...prevState.lists, newList]
-      // prevState.lists.push(newList);
     }));
-    console.table(this.state.lists);
-    
   }
 
   deleteItem = (listId, itemId) => {
@@ -112,7 +107,6 @@ class App extends Component {
   }
 
   addItem = (listId, itemDescription) => {
-    console.log('insert new item "' + itemDescription + '" to list: ' + listId);
     this.setState(prevState => ({
       lists: prevState.lists.map(list => {
         if (list.id === listId) {
@@ -121,10 +115,7 @@ class App extends Component {
             description: itemDescription,
             isComplete: false
           }
-          // list.items = [...list.items, newItem];
           list.items.push(newItem);
-          console.table(list.items);
-          
         }
         return list;
       })
