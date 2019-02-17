@@ -1,12 +1,13 @@
 # To-Do List Management App
 
+React app that manages to-do lists ((link to live version)[https://simongt.github.io/react-to-do-list/]).
+
 ## Component Breakdown
-* `<App>` renders out the title, paper-like styling and `<Lists>`
+* `<App>` renders out `<Header>` and `<Lists>`
+* `<Header>`renders out the title, paper-like styling
 * `<Lists>` renders out an array of `<List>`
 * `<List>` renders out a list label and an array of `<ListItem>`
 * `<ListItem>` renders out an item description
-
-
 
 <details>
 
