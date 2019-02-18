@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-to-do-list/static/css/main.380b0305.chunk.css",
-  "main.js": "/react-to-do-list/static/js/main.36e54f37.chunk.js",
-  "main.js.map": "/react-to-do-list/static/js/main.36e54f37.chunk.js.map",
+  "main.css": "/react-to-do-list/static/css/main.f471b4a9.chunk.css",
+  "main.js": "/react-to-do-list/static/js/main.5bf9036d.chunk.js",
+  "main.js.map": "/react-to-do-list/static/js/main.5bf9036d.chunk.js.map",
   "static/js/1.79a43ede.chunk.js": "/react-to-do-list/static/js/1.79a43ede.chunk.js",
   "static/js/1.79a43ede.chunk.js.map": "/react-to-do-list/static/js/1.79a43ede.chunk.js.map",
   "runtime~main.js": "/react-to-do-list/static/js/runtime~main.52435d08.js",
   "runtime~main.js.map": "/react-to-do-list/static/js/runtime~main.52435d08.js.map",
-  "static/css/main.380b0305.chunk.css.map": "/react-to-do-list/static/css/main.380b0305.chunk.css.map",
+  "static/css/main.f471b4a9.chunk.css.map": "/react-to-do-list/static/css/main.f471b4a9.chunk.css.map",
   "index.html": "/react-to-do-list/index.html",
-  "precache-manifest.bbaaff6dda51ccef7be2827d65c61cdc.js": "/react-to-do-list/precache-manifest.bbaaff6dda51ccef7be2827d65c61cdc.js",
+  "precache-manifest.c77a90bf357f5c35ab7c786fba043ddf.js": "/react-to-do-list/precache-manifest.c77a90bf357f5c35ab7c786fba043ddf.js",
   "service-worker.js": "/react-to-do-list/service-worker.js"
 }
