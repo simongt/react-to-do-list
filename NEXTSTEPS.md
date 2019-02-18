@@ -34,3 +34,4 @@
 * Add reset / clear button.
 * Add up / down buttons to move lists and items.
 * Improve hover margins and padding for new list insertion.
+* For list label edit feature, pass prop back up pipeline and update the state.

@@ -28,11 +28,11 @@ export class AddList extends Component {
     return (
       <div
         style={insertNewListStyle}
+        className='insert-new-list'
       >
         <form
           onSubmit={this.onSubmit}
           style={insertNewListFormStyle}
-          className='insert-new-list'
         >
           <input
             type='text'

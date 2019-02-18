@@ -35,8 +35,8 @@ li.list-label {
   color: #444;
   font-size: 1.5em;
   text-indent: 0.2em;
-  padding-top: 0.55em;
-  line-height: 0.65em;
+  padding-top: 0.6em;
+  line-height: 0.7em;
 }
 
 li.item-description {
@@ -47,9 +47,14 @@ li.item-description {
   line-height: 0.7em;
 }
 
-/* .insert-new-list:hover, */
+li.item-description:hover,
+li.list-label:hover {
+  color: black;
+}
+
+.insert-new-list:hover,
 .lists li:hover {
-  background-color: #fff;
+  background-color: #f8f8f8;
 
   transition:          all 0.2s;
   --o-transition:      all 0.2s;
@@ -70,11 +75,10 @@ input:focus {
   color: blue;
 }
 
-form.insert-new-item input[type="submit"],
-form.insert-new-list input[type="submit"] {
+.insert-new-item input[type="submit"],
+.insert-new-list input[type="submit"] {
   display: none;
 }
-
 
 /* @keyframes strike {
   from {

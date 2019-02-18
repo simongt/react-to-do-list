@@ -124,7 +124,6 @@ export class Lists extends Component {
   }
 
   deleteList = (listId) => {
-    console.log('delete list: ' + listId);
     this.setState(prevState => ({
       lists: [...prevState.lists.filter(list => list.id !== listId)]
     }));
@@ -133,6 +132,8 @@ export class Lists extends Component {
   editList = (listId) => {
     console.log('edit list: ' + listId);
     // TO-DO
+    // this feature is implemented within List.js, but
+    // need to pass prop up pipeline to update state
   }
 
   render() {
