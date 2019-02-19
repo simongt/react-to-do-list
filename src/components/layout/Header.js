@@ -19,7 +19,14 @@ export class Header extends Component {
         <div style={verticalRedLines} />
         <div style={appTitleStyle}>
           {'To-Do List Manager '}
-          <SVGIcon name="pencil" width={33} fill="#333" />
+          <SVGIcon
+            name="pencil-and-paper"
+            width={25}
+            fill="#333"
+            style={{
+              marginBottom: '-0.02em'
+            }}
+          />
           <div style={dateStyle}>
             <span className='day-of-week'>{dayOfWeek + ', '}</span>
             <span className='month'>{month + ' '}</span>
@@ -49,7 +56,7 @@ const appTitleStyle = {
   margin: '0',
   padding: '0',
   textIndent: '0.1em',
-  paddingTop: '0.8em',
+  paddingTop: '0.5em',
   lineHeight: '0.8em',
   borderBottom: '1px solid lightblue'
 }
@@ -59,7 +66,7 @@ const dateStyle = {
   float: 'right',
   fontSize: '.5em',
   marginRight: '.75em',
-  paddingTop: '.4em'
+  paddingTop: '1em'
 }
 
 export default Header;

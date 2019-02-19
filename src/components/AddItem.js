@@ -44,10 +44,7 @@ export class AddItem extends Component {
             onChange={this.onChange}
           />
           <label>
-            <input
-              type='submit'
-              value='+'
-            />
+            <input type='submit' value='+' />
             <SVGIcon
               name="add"
               width={25}
