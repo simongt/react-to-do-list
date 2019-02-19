@@ -175,13 +175,12 @@ const submitAndCancelButtonStyle = {
 }
 
 const editButtonStyle = {
-  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
   marginTop: '-1.1em',
-  marginRight: '0.5em',
+  marginRight: '0em',
   float: 'right'
 }
 
