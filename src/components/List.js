@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // TO-DO: add createRef API
 import ListItem from './ListItem';
 import AddItem from './AddItem';
 import PropTypes from 'prop-types';
@@ -20,7 +20,7 @@ export class List extends Component {
 
   updateListLabel = event => {
     const { editList } = this.props;
-    const { id, label } = this.props.list;
+    const { id } = this.props.list;
     const { value } = this.refs.listLabel;
 
     this.setState({

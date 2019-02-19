@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // TO-DO: add createRef API
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
 // import AutosizeInput from 'react-input-autosize';
@@ -23,8 +23,10 @@ export class ListItem extends Component {
 
   updateItemDescription = event => {
     const { editItem } = this.props;
-    const { id, description } = this.props.item;
-    const { value } = this.refs.itemDescription;
+    const { id } = this.props.item;
+    const { value } = this.refs.itemDescription; 
+
+    // TO-DO: update string refs to use either callback refs or createRef API
 
     this.setState({
       itemDescription: value
@@ -58,6 +60,9 @@ export class ListItem extends Component {
   // render view (to edit item description) when input mode is enabled
   renderItemDescriptionInputMode = () => {
     const { itemDescription } = this.state;
+
+    // TO-DO: update string refs to use either callback refs or createRef API
+
     return (
       <>
         {/* <AutosizeInput
@@ -65,7 +70,7 @@ export class ListItem extends Component {
         defaultValue={this.state.itemDescription}
         ref="itemDescription"
         autoFocus
-        inputStyle={editItemDescriptionInputStyle}
+        inputStyle={editItemDescriptionASInputStyle}
         onKeyPress={event => this.handleKeyPress(event)}
         /> */}
         <input
@@ -76,6 +81,18 @@ export class ListItem extends Component {
           style={editItemDescriptionInputStyle}
           onKeyPress={this.handleKeyPress}
         />
+        {/* <button
+          style={submitAndCancelASInputButtonStyle}
+          onClick={this.updateItemDescription}
+        >
+          <SVGIcon name="checkmark" width={20} fill="#333" />
+        </button>
+        <button
+          style={submitAndCancelASInputButtonStyle}
+          onClick={this.toggleInputMode}
+        >
+          <SVGIcon name="x" width={20} fill="#333" />
+        </button> */}
         <button
           style={submitAndCancelButtonStyle}
           onClick={this.updateItemDescription}
@@ -179,7 +196,7 @@ const checkboxStyle = {
   float: 'left'
 }
 
-// const submitAndCancelButtonStyle = {
+// const submitAndCancelASInputButtonStyle = {
 //   background: 'transparent',
 //   border: '1px solid transparent',
 //   outline: 'none',
@@ -189,7 +206,7 @@ const checkboxStyle = {
 //   marginLeft: '0.1em'
 // }
 
-// const editItemDescriptionInputStyle = {
+// const editItemDescriptionASInputStyle = {
 //   border: '1px solid transparent',
 //   outline: 'none',
 //   background: 'transparent',
