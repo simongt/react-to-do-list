@@ -45,6 +45,7 @@ li.item-description {
   text-indent: 0.4em;
   padding-top: 1.2em;
   line-height: 0.7em;
+  text-decoration-color: 'transparent';
 }
 
 li.item-description:hover,
