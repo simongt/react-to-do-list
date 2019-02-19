@@ -1,7 +1,6 @@
 import React, { Component } from 'react'; // TO-DO: add createRef API
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
-// import AutosizeInput from 'react-input-autosize';
 
 export class ListItem extends Component {
 
@@ -65,46 +64,28 @@ export class ListItem extends Component {
 
     return (
       <>
-        {/* <AutosizeInput
-        type="text"
-        defaultValue={this.state.itemDescription}
-        ref="itemDescription"
-        autoFocus
-        inputStyle={editItemDescriptionASInputStyle}
-        onKeyPress={event => this.handleKeyPress(event)}
-        /> */}
-        <input
-          type="text"
-          defaultValue={itemDescription}
-          ref="itemDescription"
-          autoFocus={true}
-          style={editItemDescriptionInputStyle}
-          onKeyPress={this.handleKeyPress}
-        />
-        {/* <button
-          style={submitAndCancelASInputButtonStyle}
-          onClick={this.updateItemDescription}
-        >
-          <SVGIcon name="checkmark" width={20} fill="#333" />
-        </button>
-        <button
-          style={submitAndCancelASInputButtonStyle}
-          onClick={this.toggleInputMode}
-        >
-          <SVGIcon name="x" width={20} fill="#333" />
-        </button> */}
-        <button
-          style={submitAndCancelButtonStyle}
-          onClick={this.updateItemDescription}
-        >
-          <SVGIcon name="checkmark" width={20} fill="#333" />
-        </button>
-        <button
-          style={submitAndCancelButtonStyle}
-          onClick={this.toggleInputMode}
-        >
-          <SVGIcon name="x" width={20} fill="#333" />
-        </button>
+        <label style={editItemContainerStyle}>
+          <input
+            type="text"
+            defaultValue={itemDescription}
+            ref="itemDescription"
+            autoFocus={true}
+            style={editItemInputStyle}
+            onKeyPress={this.handleKeyPress}
+          />
+          <button
+            style={submitButtonStyle}
+            onClick={this.updateItemDescription}
+          >
+            <SVGIcon name="checkmark" width={21} fill="#333" />
+          </button>
+          <button
+            style={cancelButtonStyle}
+            onClick={this.toggleInputMode}
+          >
+            <SVGIcon name="x" width={20} fill="#333" />
+          </button>
+        </label>
       </>
     );
   }
@@ -150,19 +131,28 @@ export class ListItem extends Component {
             this.renderItemDescription()
           }
           {/* load clickable SVG icon to delete item */}
-          <button
-            style={deleteButtonStyle}
-            onClick={event => deleteItem(id, event)}
-          >
-            <SVGIcon name="trash" width={25} fill="#333" />
-          </button>
+          {inputModeEnabled ? (
+            <button
+              style={deleteButtonInputModeStyle}
+              onClick={event => deleteItem(id, event)}
+            >
+              <SVGIcon name="trash" width={25} fill="#333" />
+            </button>
+          ) : (
+            <button
+              style={deleteButtonStyle}
+              onClick={event => deleteItem(id, event)}
+            >
+              <SVGIcon name="trash" width={25} fill="#333" />
+            </button>
+          )}
           {/* load clickable SVG icon to toggle editing mode views */}
           {inputModeEnabled ? (<></>) : (
             <button
               style={editButtonStyle}
               onClick={this.toggleInputMode}
             >
-              <SVGIcon name="pencil" width={25} fill="#333" />
+              <SVGIcon name="pencil" width={20} fill="#333" />
             </button>
           )}
         </li>
@@ -196,38 +186,15 @@ const checkboxStyle = {
   float: 'left'
 }
 
-// const submitAndCancelASInputButtonStyle = {
-//   background: 'transparent',
-//   border: '1px solid transparent',
-//   outline: 'none',
-//   cursor: 'pointer',
-//   marginTop: '-1.4em',
-//   marginBottom: '-0.8em',
-//   marginLeft: '0.1em'
-// }
-
-// const editItemDescriptionASInputStyle = {
-//   border: '1px solid transparent',
-//   outline: 'none',
-//   background: 'transparent',
-//   fontFamily: "'Indie Flower', cursive",
-//   fontSize: '1em',
-//   marginTop: '-1.4em',
-//   marginBottom: '-0.8em',
-//   marginLeft: '-0.47em'
-// }
-
-const submitAndCancelButtonStyle = {
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-1.4em',
-  marginBottom: '-0.8em',
-  marginLeft: '-0.04em'
+const editItemContainerStyle = {
+  display: 'flex',
+  paddingTop: '0.6em',
+  paddingLeft: '0.38em',
+  paddingBottom: '0.07em'
 }
 
-const editItemDescriptionInputStyle = {
+const editItemInputStyle = {
+  flex: '1',
   border: '1px solid transparent',
   outline: 'none',
   background: 'transparent',
@@ -235,7 +202,28 @@ const editItemDescriptionInputStyle = {
   fontSize: '1em',
   marginTop: '-1.4em',
   marginBottom: '-0.8em',
-  marginLeft: '-0.04em'
+  marginLeft: '-0.04em',
+  marginRight: '-0.1em'
+}
+
+const submitButtonStyle = {
+  // visibility: 'hidden',
+  background: 'transparent',
+  border: '1px solid transparent',
+  outline: 'none',
+  cursor: 'pointer',
+  marginTop: '-2.3em',
+  marginRight: '0.5em'
+}
+
+const cancelButtonStyle = {
+  // visibility: 'hidden',
+  background: 'transparent',
+  border: '1px solid transparent',
+  outline: 'none',
+  cursor: 'pointer',
+  marginTop: '-2.4em',
+  marginRight: '4em'
 }
 
 const editButtonStyle = {
@@ -244,18 +232,30 @@ const editButtonStyle = {
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
-  marginTop: '-1.5em',
-  marginRight: '0.5em',
+  marginTop: '-1.35em',
+  marginRight: '0.1em',
   float: 'right'
 }
 
 const deleteButtonStyle = {
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
   marginTop: '-1.6em',
   marginRight: '1.5em',
+  float: 'right'
+}
+
+const deleteButtonInputModeStyle = {
+  // visibility: 'hidden',
+  background: 'transparent',
+  border: '1px solid transparent',
+  outline: 'none',
+  cursor: 'pointer',
+  marginTop: '-2.6em',
+  marginRight: '1.44em',
   float: 'right'
 }
 

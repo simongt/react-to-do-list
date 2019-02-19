@@ -51,7 +51,7 @@ export class List extends Component {
           defaultValue={this.state.listLabel}
           ref="listLabel"
           autoFocus={true}
-          inputStyle={editListLabelInputStyle}
+          inputStyle={editListInputStyle}
           onKeyPress={event => this.handleKeyPress(event)}
         /> */}
         <input
@@ -59,7 +59,7 @@ export class List extends Component {
           defaultValue={listLabel}
           ref="listLabel"
           autoFocus={true}
-          style={editListLabelInputStyle}
+          style={editListInputStyle}
           onKeyPress={event => this.handleKeyPress(event)}
         />
         <button
@@ -116,7 +116,7 @@ export class List extends Component {
                   onClick={this.toggleInputMode}
                   style={editButtonStyle}
                 >
-                  <SVGIcon name="pencil" width={25} fill="#333" />
+                  <SVGIcon name="pencil" width={23} fill="#333" />
                 </button>
               )
             }
@@ -153,7 +153,7 @@ List.propTypes = {
   list: PropTypes.object.isRequired
 }
 
-const editListLabelInputStyle = {
+const editListInputStyle = {
   border: '1px solid transparent',
   outline: 'none',
   background: 'transparent',
@@ -175,13 +175,12 @@ const submitAndCancelButtonStyle = {
 }
 
 const editButtonStyle = {
-  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
-  marginTop: '-1.1em',
-  marginRight: '0.5em',
+  marginTop: '-1em',
+  marginRight: '0em',
   float: 'right'
 }
 
