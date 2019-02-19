@@ -74,7 +74,7 @@ export class Lists extends Component {
     }));
   }
 
-  addList = (listLabel) => {
+  addList = listLabel => {
     const newList = {
       id: uuid.v4(),
       label: listLabel,
@@ -123,17 +123,21 @@ export class Lists extends Component {
     }));
   }
 
-  deleteList = (listId) => {
+  deleteList = listId => {
     this.setState(prevState => ({
       lists: [...prevState.lists.filter(list => list.id !== listId)]
     }));
   }
 
-  editList = (listId) => {
-    console.log('edit list: ' + listId);
-    // TO-DO
-    // this feature is implemented within List.js, but
-    // need to pass prop up pipeline to update state
+  editList = (listId, listLabel) => {
+    this.setState(prevState => ({
+      lists: prevState.lists.map(list => {
+        if (list.id === listId) {
+          list.label = listLabel;
+        }
+        return list;
+      })
+    }));
   }
 
   render() {

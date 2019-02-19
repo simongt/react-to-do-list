@@ -17,11 +17,16 @@ export class List extends Component {
     }));
   }
 
-  updateListLabel = () => {
+  updateListLabel = event => {
     this.setState(prevState => ({
       listLabel: this.refs.listLabel.value
     }));
     this.toggleInputMode();
+    this.props.editList(
+      this.props.list.id,
+      this.refs.listLabel.value,
+      event
+    );
   }
 
   // render view (to edit list label) when input mode is enabled
@@ -36,7 +41,7 @@ export class List extends Component {
           style={editListLabelInputStyle}
         />
         <button
-          onClick={this.updateListLabel}
+          onClick={event => this.updateListLabel(event)}
           style={submitAndCancelButtonStyle}
         >
           <SVGIcon name="checkmark" width={20} fill="#333" />
@@ -51,10 +56,12 @@ export class List extends Component {
     );
   }
 
-  // render default view whenever input mode isn't enable
+  // render default view whenever input mode isn't enabled
   renderListLabel = () => {
     return (
-      <span onClick={this.toggleInputMode}>{this.state.listLabel}</span>
+      <span onClick={this.toggleInputMode}>
+        {this.state.listLabel}
+      </span>
     );
   }
 
@@ -65,7 +72,7 @@ export class List extends Component {
       addItem,
       deleteItem,
       editItem,
-      deleteList
+      deleteList,
     } = this.props;
     const { inputModeEnabled } = this.state;
     const { id, items } = this.props.list;
@@ -83,10 +90,6 @@ export class List extends Component {
             >
               <SVGIcon name="trash" width={25} fill="#333" />
             </button>
-            {/* <button
-              onClick={event => editList(id, event)}
-              style={editButtonStyle}
-            > */}
             {inputModeEnabled ? (<></>) :
               (
                 <button
