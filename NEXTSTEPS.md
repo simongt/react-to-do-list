@@ -37,3 +37,4 @@
 * For list label edit feature, pass prop back up pipeline and update the state.
 * If an item is marked complete, then do not allow edit mode.
 * Make paper and pencil icon atop clickable so that it clears out all the lists and items, add an arrow and text as indicator
+* Update string refs (legacy) to use either callback refs or the createRef API instead: https://reactjs.org/docs/refs-and-the-dom.html
