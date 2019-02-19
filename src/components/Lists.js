@@ -74,6 +74,12 @@ export class Lists extends Component {
     }));
   }
 
+  deleteList = listId => {
+    this.setState(prevState => ({
+      lists: [...prevState.lists.filter(list => list.id !== listId)]
+    }));
+  }
+
   addList = listLabel => {
     const newList = {
       id: uuid.v4(),
@@ -82,6 +88,17 @@ export class Lists extends Component {
     }
     this.setState(prevState => ({
       lists: [...prevState.lists, newList]
+    }));
+  }
+
+  editList = (listId, listLabel) => {
+    this.setState(prevState => ({
+      lists: prevState.lists.map(list => {
+        if (list.id === listId) {
+          list.label = listLabel;
+        }
+        return list;
+      })
     }));
   }
 
@@ -94,10 +111,6 @@ export class Lists extends Component {
         return list;
       })
     }));
-  }
-
-  editItem = (listId, itemId, itemDescription) => {
-    console.log('edit item: ' + listId + ' ' + itemId + ' ' + itemDescription);
   }
 
   addItem = (listId, itemDescription) => {
@@ -116,24 +129,22 @@ export class Lists extends Component {
     }));
   }
 
-  deleteList = listId => {
-    this.setState(prevState => ({
-      lists: [...prevState.lists.filter(list => list.id !== listId)]
-    }));
-  }
-
-  editList = (listId, listLabel) => {
+  editItem = (listId, updatedItem) => {
     this.setState(prevState => ({
       lists: prevState.lists.map(list => {
-        if (list.id === listId) {
-          list.label = listLabel;
+        if(list.id === listId) {
+          list.items.forEach(item => {
+            if(item.id === updatedItem.id) {
+              item.description = updatedItem.description;
+            }
+          });
         }
         return list;
       })
-    }));
+    }))
   }
 
-  render() {
+render() {
     const { lists } = this.state;
     return (
       <div>
@@ -145,8 +156,8 @@ export class Lists extends Component {
                 key={list.id}
                 list={list}
                 toggleItemCompletion={this.toggleItemCompletion}
-                addItem={this.addItem}
                 deleteItem={this.deleteItem}
+                addItem={this.addItem}
                 editItem={this.editItem}
                 deleteList={this.deleteList}
                 editList={this.editList}

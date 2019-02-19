@@ -20,7 +20,7 @@ export class List extends Component {
 
   updateListLabel = event => {
     const { editList } = this.props;
-    const { id } = this.props.list;
+    const { id, label } = this.props.list;
     const { value } = this.refs.listLabel;
 
     this.setState({

@@ -36,3 +36,4 @@
 * Improve hover margins and padding for new list insertion.
 * For list label edit feature, pass prop back up pipeline and update the state.
 * If an item is marked complete, then do not allow edit mode.
+* Make paper and pencil icon atop clickable so that it clears out all the lists and items, add an arrow and text as indicator

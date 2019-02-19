@@ -23,7 +23,7 @@ export class ListItem extends Component {
 
   updateItemDescription = event => {
     const { editItem } = this.props;
-    const { id } = this.props.item;
+    const { id, description } = this.props.item;
     const { value } = this.refs.itemDescription;
 
     this.setState({
@@ -32,7 +32,18 @@ export class ListItem extends Component {
     
     this.toggleInputMode();
     
-    editItem(id, value, event);
+    let updatedItem = {
+      id: id,
+      description: value,
+      isComplete: false
+    }
+
+    // only seems to pass first arg but this method call is somehow allowed
+    // this is preventing state update in Lists component
+    // editItem(id, value, event);
+
+    // bundled the args into an object (hackish way to pass everything together)
+    editItem(updatedItem, event);
   }
 
   handleKeyPress = event => {
@@ -66,14 +77,14 @@ export class ListItem extends Component {
           onKeyPress={this.handleKeyPress}
         />
         <button
-          onClick={this.updateItemDescription}
           style={submitAndCancelButtonStyle}
+          onClick={this.updateItemDescription}
         >
           <SVGIcon name="checkmark" width={20} fill="#333" />
         </button>
         <button
-          onClick={this.toggleInputMode}
           style={submitAndCancelButtonStyle}
+          onClick={this.toggleInputMode}
         >
           <SVGIcon name="x" width={20} fill="#333" />
         </button>
@@ -123,16 +134,16 @@ export class ListItem extends Component {
           }
           {/* load clickable SVG icon to delete item */}
           <button
-            onClick={event => deleteItem(id, event)}
             style={deleteButtonStyle}
+            onClick={event => deleteItem(id, event)}
           >
             <SVGIcon name="trash" width={25} fill="#333" />
           </button>
           {/* load clickable SVG icon to toggle editing mode views */}
           {inputModeEnabled ? (<></>) : (
             <button
-              onClick={this.toggleInputMode}
               style={editButtonStyle}
+              onClick={this.toggleInputMode}
             >
               <SVGIcon name="pencil" width={25} fill="#333" />
             </button>
