@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SVGIcon from '../SVGIcon';
 
 export class Header extends Component {
   render() {
@@ -17,7 +18,8 @@ export class Header extends Component {
       <header className='app-header'>
         <div style={verticalRedLines} />
         <div style={appTitleStyle}>
-          To-Do List Manager
+          {'To-Do List Manager '}
+          <SVGIcon name="pencil" width={33} fill="#333" />
           <div style={dateStyle}>
             <span className='day-of-week'>{dayOfWeek + ', '}</span>
             <span className='month'>{month + ' '}</span>

@@ -164,6 +164,7 @@ const submitAndCancelButtonStyle = {
 }
 
 const editButtonStyle = {
+  visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
