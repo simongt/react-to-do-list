@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
-import AutosizeInput from 'react-input-autosize';
+// import AutosizeInput from 'react-input-autosize';
 
 export class ListItem extends Component {
 
@@ -22,15 +22,14 @@ export class ListItem extends Component {
   }
 
   updateItemDescription = event => {
+    const { editItem } = this.props;
+    const { id } = this.props.item;
+    const { value } = this.refs.itemDescription;
     this.setState({
-      itemDescription: this.refs.itemDescription.value
+      itemDescription: value
     });
     this.toggleInputMode();
-    this.props.editItem(
-      this.props.item.id,
-      this.refs.itemDescription.value,
-      event
-    );
+    editItem(id, value, event);
   }
 
   handleKeyPress = event => {
@@ -43,51 +42,47 @@ export class ListItem extends Component {
   }
 
   // render view (to edit item description) when input mode is enabled
-  renderItemDescriptionInputMode = () => (
-    <>
-      <input
-        disabled
-        type='checkbox'
-        style={checkboxStyle}
-        onChange={event => this.props.toggleItemCompletion(this.props.item.id, event)}
-      />
-      <AutosizeInput
+  renderItemDescriptionInputMode = () => {
+    const { itemDescription } = this.state;
+    return (
+      <>
+        {/* <AutosizeInput
         type="text"
         defaultValue={this.state.itemDescription}
-        placeholder={this.state.itemDescription}
-        placeholderIsMinWidth={true}
         ref="itemDescription"
-        autoFocus={true}
+        autoFocus
         inputStyle={editItemDescriptionInputStyle}
         onKeyPress={event => this.handleKeyPress(event)}
-      />
-      <button
-        onClick={event => this.updateItemDescription(event)}
-        style={submitAndCancelButtonStyle}
-      >
-        <SVGIcon name="checkmark" width={20} fill="#333" />
-      </button>
-      <button
-        onClick={this.toggleInputMode}
-        style={submitAndCancelButtonStyle}
-      >
-        <SVGIcon name="x" width={20} fill="#333" />
-      </button>
-    </>
-  );
+        /> */}
+        <input
+          type="text"
+          defaultValue={itemDescription}
+          ref="itemDescription"
+          autoFocus={true}
+          style={editItemDescriptionInputStyle}
+          onKeyPress={event => this.handleKeyPress(event)}
+        />
+        <button
+          onClick={event => this.updateItemDescription(event)}
+          style={submitAndCancelButtonStyle}
+        >
+          <SVGIcon name="checkmark" width={20} fill="#333" />
+        </button>
+        <button
+          onClick={this.toggleInputMode}
+          style={submitAndCancelButtonStyle}
+        >
+          <SVGIcon name="x" width={20} fill="#333" />
+        </button>
+      </>
+    );
+  }
   
   // render default view whenever input mode isn't enabled
   renderItemDescription = () => (
-    <>
-      <input
-        type='checkbox'
-        style={checkboxStyle}
-        onChange={event => this.props.toggleItemCompletion(this.props.item.id, event)}
-      />
-      <span onClick={this.toggleInputMode}>
-        {' ' + this.state.itemDescription}
-      </span>
-    </>
+    <span onClick={this.toggleInputMode}>
+      {' ' + this.state.itemDescription}
+    </span>
   );
 
   render() {
@@ -97,13 +92,18 @@ export class ListItem extends Component {
       deleteItem,
       editItem
     } = this.props;
-    const { id, description } = this.props.item;
+    const { id } = this.props.item;
     return (
       <div className='list-item'>
         <li
           className='item-description'
           style={this.crossOutCompletedItems()}
         >
+          <input
+            type='checkbox'
+            style={checkboxStyle}
+            onChange={event => toggleItemCompletion(id, event)}
+          />
           {inputModeEnabled ?
             this.renderItemDescriptionInputMode() :
             this.renderItemDescription()
@@ -115,7 +115,7 @@ export class ListItem extends Component {
             <SVGIcon name="trash" width={25} fill="#333" />
           </button>
           <button
-            onClick={event => editItem(id, event)}
+            onClick={event => editItem(id, itemDescription, event)}
             style={editButtonStyle}
           >
             <SVGIcon name="pencil" width={25} fill="#333" />
@@ -151,6 +151,27 @@ const checkboxStyle = {
   float: 'left'
 }
 
+// const submitAndCancelButtonStyle = {
+//   background: 'transparent',
+//   border: '1px solid transparent',
+//   outline: 'none',
+//   cursor: 'pointer',
+//   marginTop: '-1.4em',
+//   marginBottom: '-0.8em',
+//   marginLeft: '0.1em'
+// }
+
+// const editItemDescriptionInputStyle = {
+//   border: '1px solid transparent',
+//   outline: 'none',
+//   background: 'transparent',
+//   fontFamily: "'Indie Flower', cursive",
+//   fontSize: '1em',
+//   marginTop: '-1.4em',
+//   marginBottom: '-0.8em',
+//   marginLeft: '-0.47em'
+// }
+
 const submitAndCancelButtonStyle = {
   background: 'transparent',
   border: '1px solid transparent',
@@ -158,7 +179,7 @@ const submitAndCancelButtonStyle = {
   cursor: 'pointer',
   marginTop: '-1.4em',
   marginBottom: '-0.8em',
-  marginLeft: '0.1em'
+  marginLeft: '-0.04em'
 }
 
 const editItemDescriptionInputStyle = {
@@ -169,7 +190,7 @@ const editItemDescriptionInputStyle = {
   fontSize: '1em',
   marginTop: '-1.4em',
   marginBottom: '-0.8em',
-  marginLeft: '-0.47em'
+  marginLeft: '-0.04em'
 }
 
 const editButtonStyle = {
@@ -192,6 +213,5 @@ const deleteButtonStyle = {
   marginRight: '1.5em',
   float: 'right'
 }
-
 
 export default ListItem;

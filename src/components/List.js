@@ -3,7 +3,7 @@ import ListItem from './ListItem';
 import AddItem from './AddItem';
 import PropTypes from 'prop-types';
 import SVGIcon from './SVGIcon';
-import AutosizeInput from 'react-input-autosize';
+// import AutosizeInput from 'react-input-autosize';
 
 export class List extends Component {
 
@@ -23,6 +23,7 @@ export class List extends Component {
       listLabel: this.refs.listLabel.value
     });
     this.toggleInputMode();
+    console.log(event);
     this.props.editList(
       this.props.list.id,
       this.refs.listLabel.value,
@@ -43,12 +44,20 @@ export class List extends Component {
   renderListLabelInputMode = () => {
     return (
       <label>
-        <AutosizeInput
+        {/* <AutosizeInput
           type="text"
           defaultValue={this.state.listLabel}
           ref="listLabel"
           autoFocus={true}
           inputStyle={editListLabelInputStyle}
+          onKeyPress={event => this.handleKeyPress(event)}
+        /> */}
+        <input
+          type="text"
+          defaultValue={this.state.listLabel}
+          ref="listLabel"
+          autoFocus={true}
+          style={editListLabelInputStyle}
           onKeyPress={event => this.handleKeyPress(event)}
         />
         <button
@@ -150,7 +159,7 @@ const editListLabelInputStyle = {
   fontSize: '1em',
   marginTop: '-1em',
   marginBottom: '-0.8em',
-  marginLeft: '-0.25em'
+  marginLeft: '-0.04em'
 }
 
 const submitAndCancelButtonStyle = {

@@ -16,7 +16,7 @@ export class AddItem extends Component {
     event.preventDefault();
     const { addItem } = this.props;
     const { description } = this.state;
-    addItem(description);
+    addItem(description, event);
     this.setState({
       description: ''
     });
