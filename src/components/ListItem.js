@@ -1,7 +1,6 @@
 import React, { Component } from 'react'; // TO-DO: add createRef API
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
-// import AutosizeInput from 'react-input-autosize';
 
 export class ListItem extends Component {
 
@@ -66,14 +65,6 @@ export class ListItem extends Component {
     return (
       <>
         <label style={editItemContainerStyle}>
-          {/* <AutosizeInput
-          type="text"
-          defaultValue={this.state.itemDescription}
-          ref="itemDescription"
-          autoFocus
-          inputStyle={editItemDescriptionASInputStyle}
-          onKeyPress={event => this.handleKeyPress(event)}
-          /> */}
           <input
             type="text"
             defaultValue={itemDescription}
@@ -82,18 +73,6 @@ export class ListItem extends Component {
             style={editItemInputStyle}
             onKeyPress={this.handleKeyPress}
           />
-          {/* <button
-            style={submitAndCancelASInputButtonStyle}
-            onClick={this.updateItemDescription}
-          >
-            <SVGIcon name="checkmark" width={20} fill="#333" />
-          </button>
-          <button
-            style={submitAndCancelASInputButtonStyle}
-            onClick={this.toggleInputMode}
-          >
-            <SVGIcon name="x" width={20} fill="#333" />
-          </button> */}
           <button
             style={submitButtonStyle}
             onClick={this.updateItemDescription}
@@ -173,7 +152,7 @@ export class ListItem extends Component {
               style={editButtonStyle}
               onClick={this.toggleInputMode}
             >
-              <SVGIcon name="pencil" width={25} fill="#333" />
+              <SVGIcon name="pencil" width={20} fill="#333" />
             </button>
           )}
         </li>
@@ -207,32 +186,11 @@ const checkboxStyle = {
   float: 'left'
 }
 
-// const submitAndCancelASInputButtonStyle = {
-//   background: 'transparent',
-//   border: '1px solid transparent',
-//   outline: 'none',
-//   cursor: 'pointer',
-//   marginTop: '-1.4em',
-//   marginBottom: '-0.8em',
-//   marginLeft: '0.1em'
-// }
-
-// const editItemDescriptionASInputStyle = {
-//   border: '1px solid transparent',
-//   outline: 'none',
-//   background: 'transparent',
-//   fontFamily: "'Indie Flower', cursive",
-//   fontSize: '1em',
-//   marginTop: '-1.4em',
-//   marginBottom: '-0.8em',
-//   marginLeft: '-0.47em'
-// }
-
-const editItemContainerStyle ={
+const editItemContainerStyle = {
   display: 'flex',
   paddingTop: '0.6em',
-  paddingLeft: '0.4em',
-  paddingBottom: '0.06em'
+  paddingLeft: '0.38em',
+  paddingBottom: '0.07em'
 }
 
 const editItemInputStyle = {
@@ -248,47 +206,39 @@ const editItemInputStyle = {
   marginRight: '-0.1em'
 }
 
-// const submitAndCancelButtonStyle = {
-//   background: 'transparent',
-//   border: '1px solid transparent',
-//   outline: 'none',
-//   cursor: 'pointer',
-//   marginTop: '-1.4em',
-//   marginBottom: '-0.8em',
-//   marginLeft: '-0.04em'
-// }
-
 const submitButtonStyle = {
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
   marginTop: '-2.3em',
-  marginRight: '0.5em',
-  float: 'right'
+  marginRight: '0.5em'
 }
 
 const cancelButtonStyle = {
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
   marginTop: '-2.4em',
-  marginRight: '4em',
-  float: 'right'
+  marginRight: '4em'
 }
 
 const editButtonStyle = {
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
   cursor: 'pointer',
-  marginTop: '-1.5em',
-  marginRight: '0em',
+  marginTop: '-1.35em',
+  marginRight: '0.1em',
   float: 'right'
 }
 
 const deleteButtonStyle = {
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
@@ -299,6 +249,7 @@ const deleteButtonStyle = {
 }
 
 const deleteButtonInputModeStyle = {
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',
