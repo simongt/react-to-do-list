@@ -29,6 +29,15 @@ export class List extends Component {
     );
   }
 
+  handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.updateListLabel(event);
+    }
+    if (event.key === 'Escape') {
+      this.toggleInputMode();
+    }
+  }
+
   // render view (to edit list label) when input mode is enabled
   renderListLabelInputMode = () => {
     return (
@@ -39,6 +48,7 @@ export class List extends Component {
           ref="listLabel"
           autoFocus={true}
           style={editListLabelInputStyle}
+          onKeyPress={event => this.handleKeyPress(event)}
         />
         <button
           onClick={event => this.updateListLabel(event)}
