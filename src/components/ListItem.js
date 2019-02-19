@@ -25,16 +25,19 @@ export class ListItem extends Component {
     const { editItem } = this.props;
     const { id } = this.props.item;
     const { value } = this.refs.itemDescription;
+
     this.setState({
       itemDescription: value
     });
+    
     this.toggleInputMode();
+    
     editItem(id, value, event);
   }
 
   handleKeyPress = event => {
     if (event.key === 'Enter') {
-      this.updateItemDescription(event);
+      this.updateItemDescription();
     }
     if (event.key === 'Escape') {
       this.toggleInputMode();
@@ -60,10 +63,10 @@ export class ListItem extends Component {
           ref="itemDescription"
           autoFocus={true}
           style={editItemDescriptionInputStyle}
-          onKeyPress={event => this.handleKeyPress(event)}
+          onKeyPress={this.handleKeyPress}
         />
         <button
-          onClick={event => this.updateItemDescription(event)}
+          onClick={this.updateItemDescription}
           style={submitAndCancelButtonStyle}
         >
           <SVGIcon name="checkmark" width={20} fill="#333" />
@@ -86,40 +89,54 @@ export class ListItem extends Component {
   );
 
   render() {
-    const { itemDescription, inputModeEnabled } = this.state;
+    const { inputModeEnabled } = this.state;
     const {
       toggleItemCompletion,
-      deleteItem,
-      editItem
+      deleteItem
     } = this.props;
     const { id } = this.props.item;
     return (
       <div className='list-item'>
+        {/* cross out completed items */}
         <li
           className='item-description'
           style={this.crossOutCompletedItems()}
         >
-          <input
-            type='checkbox'
-            style={checkboxStyle}
-            onChange={event => toggleItemCompletion(id, event)}
-          />
+          {/* load checkbox to mark items complete / incomplete */}
+          {inputModeEnabled ? (  
+            <input
+              type='checkbox'
+              style={checkboxStyle}
+              disabled={true}
+            />
+          ) : (
+            <input
+              type='checkbox'
+              style={checkboxStyle}
+              onChange={event => toggleItemCompletion(id, event)}
+            />
+          )}
+          {/* toggle between editing and non-editing mode views */}
           {inputModeEnabled ?
             this.renderItemDescriptionInputMode() :
             this.renderItemDescription()
           }
+          {/* load clickable SVG icon to delete item */}
           <button
             onClick={event => deleteItem(id, event)}
             style={deleteButtonStyle}
           >
             <SVGIcon name="trash" width={25} fill="#333" />
           </button>
-          <button
-            onClick={event => editItem(id, itemDescription, event)}
-            style={editButtonStyle}
-          >
-            <SVGIcon name="pencil" width={25} fill="#333" />
-          </button>
+          {/* load clickable SVG icon to toggle editing mode views */}
+          {inputModeEnabled ? (<></>) : (
+            <button
+              onClick={this.toggleInputMode}
+              style={editButtonStyle}
+            >
+              <SVGIcon name="pencil" width={25} fill="#333" />
+            </button>
+          )}
         </li>
       </div>
     );
@@ -194,7 +211,7 @@ const editItemDescriptionInputStyle = {
 }
 
 const editButtonStyle = {
-  visibility: 'hidden',
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',

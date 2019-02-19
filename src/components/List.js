@@ -19,16 +19,17 @@ export class List extends Component {
   }
 
   updateListLabel = event => {
+    const { editList } = this.props;
+    const { id } = this.props.list;
+    const { value } = this.refs.listLabel;
+
     this.setState({
-      listLabel: this.refs.listLabel.value
+      listLabel: value
     });
+    
     this.toggleInputMode();
-    console.log(event);
-    this.props.editList(
-      this.props.list.id,
-      this.refs.listLabel.value,
-      event
-    );
+    
+    editList(id, value, event);
   }
 
   handleKeyPress = event => {
@@ -42,6 +43,7 @@ export class List extends Component {
 
   // render view (to edit list label) when input mode is enabled
   renderListLabelInputMode = () => {
+    const { listLabel } = this.state;
     return (
       <label>
         {/* <AutosizeInput
@@ -54,7 +56,7 @@ export class List extends Component {
         /> */}
         <input
           type="text"
-          defaultValue={this.state.listLabel}
+          defaultValue={listLabel}
           ref="listLabel"
           autoFocus={true}
           style={editListLabelInputStyle}
@@ -173,7 +175,7 @@ const submitAndCancelButtonStyle = {
 }
 
 const editButtonStyle = {
-  visibility: 'hidden',
+  // visibility: 'hidden',
   background: 'transparent',
   border: '1px solid transparent',
   outline: 'none',

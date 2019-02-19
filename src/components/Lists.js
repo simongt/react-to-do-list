@@ -97,14 +97,7 @@ export class Lists extends Component {
   }
 
   editItem = (listId, itemId, itemDescription) => {
-    this.setState(prevState => ({
-      lists: prevState.lists.map(list => {
-        if (list.id === listId) {
-          console.log('edit item: ' + listId + ' ' + itemId + ' ' + itemDescription);
-        }
-        return list;
-      })
-    }));
+    console.log('edit item: ' + listId + ' ' + itemId + ' ' + itemDescription);
   }
 
   addItem = (listId, itemDescription) => {
