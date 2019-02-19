@@ -44,7 +44,7 @@ const verticalRedLines = {
   borderLeft: '0.5px solid #ffaa9f',
   borderRight: '0.5px solid #ffaa9f',
   width: '0.2em',
-  height: '100vh',
+  height: '100vmax',
   float: 'left',
   marginLeft: '4em'
 }
