@@ -1,9 +1,9 @@
 import React, { Component } from 'react'; // TO-DO: add createRef API
 import PropTypes from 'prop-types';
+// import { css, keyframes } from 'emotion';
 import SVGIcon from "./SVGIcon";
 
 export class ListItem extends Component {
-
   state = {
     itemDescription: this.props.item.description,
     inputModeEnabled: false
@@ -63,30 +63,66 @@ export class ListItem extends Component {
     // TO-DO: update string refs to use either callback refs or createRef API
 
     return (
-      <>
-        <label style={editItemContainerStyle}>
-          <input
-            type="text"
-            defaultValue={itemDescription}
-            ref="itemDescription"
-            autoFocus={true}
-            style={editItemInputStyle}
-            onKeyPress={this.handleKeyPress}
-          />
-          <button
-            style={submitButtonStyle}
-            onClick={this.updateItemDescription}
-          >
-            <SVGIcon name="checkmark" width={21} fill="#333" />
-          </button>
-          <button
-            style={cancelButtonStyle}
-            onClick={this.toggleInputMode}
-          >
-            <SVGIcon name="x" width={20} fill="#333" />
-          </button>
-        </label>
-      </>
+      <label style={{
+        display: 'flex',
+        paddingTop: '0.6em',
+        paddingLeft: '0.38em',
+        paddingBottom: '0.07em'
+      }}>
+      
+        {/* input field to update item description */}
+        <input
+          type="text"
+          defaultValue={itemDescription}
+          ref="itemDescription"
+          autoFocus={true}
+          style={{
+            flex: '1',
+            border: '1px solid transparent',
+            outline: 'none',
+            background: 'transparent',
+            fontFamily: "'Indie Flower', cursive",
+            fontSize: '1em',
+            marginTop: '-1.4em',
+            marginBottom: '-0.8em',
+            marginLeft: '-0.04em',
+            marginRight: '-0.1em'
+          }}
+          onKeyPress={this.handleKeyPress}
+        />
+
+        {/* submit icon to confirm update */}
+        <button
+          style={{
+            // visibility: 'hidden',
+            background: 'transparent',
+            border: '1px solid transparent',
+            outline: 'none',
+            cursor: 'pointer',
+            marginTop: '-2.3em',
+            marginRight: '0.5em'
+          }}
+          onClick={this.updateItemDescription}
+        >
+          <SVGIcon name="checkmark" width={21} fill="#333" />
+        </button>
+
+        {/* cancel icon to end input mode */}
+        <button
+          style={{
+            // visibility: 'hidden',
+            background: 'transparent',
+            border: '1px solid transparent',
+            outline: 'none',
+            cursor: 'pointer',
+            marginTop: '-2.4em',
+            marginRight: '4em'
+          }}
+          onClick={this.toggleInputMode}
+        >
+          <SVGIcon name="x" width={20} fill="#333" />
+        </button>
+      </label>
     );
   }
   
@@ -115,13 +151,21 @@ export class ListItem extends Component {
           {inputModeEnabled ? (  
             <input
               type='checkbox'
-              style={checkboxStyle}
+              style={{
+                marginTop: '-.25em',
+                marginLeft: '.5em',
+                float: 'left'
+              }}
               disabled={true}
             />
           ) : (
             <input
               type='checkbox'
-              style={checkboxStyle}
+                style={{
+                  marginTop: '-.25em',
+                  marginLeft: '.5em',
+                  float: 'left'
+                }}
               onChange={event => toggleItemCompletion(id, event)}
             />
           )}
@@ -133,14 +177,32 @@ export class ListItem extends Component {
           {/* load clickable SVG icon to delete item */}
           {inputModeEnabled ? (
             <button
-              style={deleteButtonInputModeStyle}
+              style={{
+                // visibility: 'hidden',
+                background: 'transparent',
+                border: '1px solid transparent',
+                outline: 'none',
+                cursor: 'pointer',
+                marginTop: '-2.6em',
+                marginRight: '1.44em',
+                float: 'right'
+              }}
               onClick={event => deleteItem(id, event)}
             >
               <SVGIcon name="trash" width={25} fill="#333" />
             </button>
           ) : (
             <button
-              style={deleteButtonStyle}
+              style={{
+                // visibility: 'hidden',
+                background: 'transparent',
+                border: '1px solid transparent',
+                outline: 'none',
+                cursor: 'pointer',
+                marginTop: '-1.6em',
+                marginRight: '1.5em',
+                float: 'right'
+              }}
               onClick={event => deleteItem(id, event)}
             >
               <SVGIcon name="trash" width={25} fill="#333" />
@@ -149,7 +211,16 @@ export class ListItem extends Component {
           {/* load clickable SVG icon to toggle editing mode views */}
           {inputModeEnabled ? (<></>) : (
             <button
-              style={editButtonStyle}
+              style={{
+                // visibility: 'hidden',
+                background: 'transparent',
+                border: '1px solid transparent',
+                outline: 'none',
+                cursor: 'pointer',
+                marginTop: '-1.35em',
+                marginRight: '0.1em',
+                float: 'right'
+              }}
               onClick={this.toggleInputMode}
             >
               <SVGIcon name="pencil" width={20} fill="#333" />
@@ -167,6 +238,12 @@ ListItem.propTypes = {
 }
 
 const scribbleOutItem = {
+  borderBottom: '1px solid lightblue',
+  color: '#222',
+  fontSize: '1em',
+  textIndent: '0.4em',
+  paddingTop: '1.2em',
+  lineHeight: '0.7em',
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'orangered',
@@ -174,89 +251,16 @@ const scribbleOutItem = {
 }
 
 const unscribbleOutItem = {
+  borderBottom: '1px solid lightblue',
+  color: '#222',
+  fontSize: '1em',
+  textIndent: '0.4em',
+  paddingTop: '1.2em',
+  lineHeight: '0.7em',
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'transparent',
   transition: 'all 0.25s linear'
-}
-
-const checkboxStyle = {
-  marginTop: '-.25em',
-  marginLeft: '.5em',
-  float: 'left'
-}
-
-const editItemContainerStyle = {
-  display: 'flex',
-  paddingTop: '0.6em',
-  paddingLeft: '0.38em',
-  paddingBottom: '0.07em'
-}
-
-const editItemInputStyle = {
-  flex: '1',
-  border: '1px solid transparent',
-  outline: 'none',
-  background: 'transparent',
-  fontFamily: "'Indie Flower', cursive",
-  fontSize: '1em',
-  marginTop: '-1.4em',
-  marginBottom: '-0.8em',
-  marginLeft: '-0.04em',
-  marginRight: '-0.1em'
-}
-
-const submitButtonStyle = {
-  // visibility: 'hidden',
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-2.3em',
-  marginRight: '0.5em'
-}
-
-const cancelButtonStyle = {
-  // visibility: 'hidden',
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-2.4em',
-  marginRight: '4em'
-}
-
-const editButtonStyle = {
-  // visibility: 'hidden',
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-1.35em',
-  marginRight: '0.1em',
-  float: 'right'
-}
-
-const deleteButtonStyle = {
-  // visibility: 'hidden',
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-1.6em',
-  marginRight: '1.5em',
-  float: 'right'
-}
-
-const deleteButtonInputModeStyle = {
-  // visibility: 'hidden',
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-2.6em',
-  marginRight: '1.44em',
-  float: 'right'
 }
 
 export default ListItem;

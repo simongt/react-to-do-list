@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-
 import List from './List';
 import AddList from './AddList';
 

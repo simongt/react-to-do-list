@@ -1,9 +1,9 @@
 import React, { Component } from 'react'; // TO-DO: add createRef API
+import PropTypes from 'prop-types';
+// import { css } from 'emotion';
 import ListItem from './ListItem';
 import AddItem from './AddItem';
-import PropTypes from 'prop-types';
 import SVGIcon from './SVGIcon';
-// import AutosizeInput from 'react-input-autosize';
 
 export class List extends Component {
 
@@ -45,32 +45,56 @@ export class List extends Component {
   renderListLabelInputMode = () => {
     const { listLabel } = this.state;
     return (
-      <label>
-        {/* <AutosizeInput
-          type="text"
-          defaultValue={this.state.listLabel}
-          ref="listLabel"
-          autoFocus={true}
-          inputStyle={editListInputStyle}
-          onKeyPress={event => this.handleKeyPress(event)}
-        /> */}
+      <label style={{
+        display: 'flex'
+      }}>
+        {/* input field to update list label */}
         <input
           type="text"
           defaultValue={listLabel}
           ref="listLabel"
           autoFocus={true}
-          style={editListInputStyle}
+          style={{
+            flex: '1',
+            border: '1px solid transparent',
+            outline: 'none',
+            background: 'transparent',
+            fontFamily: "'Indie Flower', cursive",
+            fontSize: '1em',
+            paddingLeft: '0.2em',
+            paddingBottom: '0.1em',
+            marginTop: '-1em',
+            marginBottom: '-1.1em',
+            marginLeft: '-0.04em'
+          }}
           onKeyPress={event => this.handleKeyPress(event)}
         />
+        {/* submit icon */}
         <button
+          style={{
+            background: 'transparent',
+            border: '1px solid transparent',
+            outline: 'none',
+            cursor: 'pointer',
+            marginTop: '-1em',
+            marginRight: '0.4em'
+          }}
           onClick={event => this.updateListLabel(event)}
-          style={submitAndCancelButtonStyle}
         >
           <SVGIcon name="checkmark" width={20} fill="#333" />
         </button>
+        {/* cancel icon */}
         <button
+          style={{
+            background: 'transparent',
+            border: '1px solid transparent',
+            outline: 'none',
+            cursor: 'pointer',
+            marginTop: '-1em',
+            marginRight: '4.1em',
+            float: 'right'
+          }}
           onClick={this.toggleInputMode}
-          style={submitAndCancelButtonStyle}
         >
           <SVGIcon name="x" width={20} fill="#333" />
         </button>
@@ -97,32 +121,84 @@ export class List extends Component {
     const { inputModeEnabled } = this.state;
     const { id, items } = this.props.list;
     return (
-      <div className='list'>
-        <ul>
-          <li className='list-label'>
+      <div className='list' style={{
+        margin: '0',
+        padding: '0',
+        lineHeight: '2em'
+      }}>
+        <ul style={{
+          border: '1px solid transparent',
+          listStyle: 'none',
+          margin: '0',
+          padding: '0',
+          borderBottom: '1px solid lightblue'
+        }}>
+          <li className='list-label' style={{
+            borderBottom: '1px solid lightblue',
+            color: '#444',
+            fontSize: '1.5em',
+            textIndent: '0.2em',
+            paddingTop: '0.6em',
+            lineHeight: '0.7em'
+          }}>
             {inputModeEnabled ? 
               this.renderListLabelInputMode() :
               this.renderListLabel()
             }
-            <button
-              onClick={event => deleteList(id, event)}
-              style={deleteButtonStyle}
-            >
-              <SVGIcon name="trash" width={25} fill="#333" />
-            </button>
-            {inputModeEnabled ? (<></>) :
-              (
-                <button
-                  onClick={this.toggleInputMode}
-                  style={editButtonStyle}
-                >
-                  <SVGIcon name="pencil" width={23} fill="#333" />
-                </button>
-              )
-            }
+            {/* delete icon to remove list and its items */}
+            {inputModeEnabled ? (
+              <button
+                style={{
+                  background: 'transparent',
+                  border: '1px solid transparent',
+                  outline: 'none',
+                  cursor: 'pointer',
+                  marginTop: '-2.6em',
+                  marginRight: '1.5em',
+                  float: 'right'
+                }}
+                onClick={event => deleteList(id, event)}
+              >
+                <SVGIcon name="trash" width={25} fill="#333" />
+              </button>
+            ) : (
+              <button
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid transparent',
+                    outline: 'none',
+                    cursor: 'pointer',
+                    marginTop: '-1.2em',
+                    marginRight: '1.5em',
+                    float: 'right'
+                  }}
+                onClick={event => deleteList(id, event)}
+              >
+                <SVGIcon name="trash" width={25} fill="#333" />
+              </button>
+            )}
+            {/* edit icon to enter input mode for updating list label */}
+            {inputModeEnabled ? (<></>) : (
+              <button
+                style={{
+                  background: 'transparent',
+                  border: '1px solid transparent',
+                  outline: 'none',
+                  cursor: 'pointer',
+                  marginTop: '-1em',
+                  marginRight: '0em',
+                  float: 'right'
+                }}
+                onClick={this.toggleInputMode}
+              >
+                <SVGIcon name="pencil" width={23} fill="#333" />
+              </button>
+            )}
           </li>
           <div className='list-items'>
-            <ul>
+            <ul style={{
+              listStyle: 'none'
+            }}>
               {items.map(item => {
                 return (
                   <ListItem
@@ -139,7 +215,7 @@ export class List extends Component {
           <li>
             <AddItem
               list={list}
-              addItem={(event) => addItem(id, event)}
+              addItem={event => addItem(id, event)}
             />
           </li>
         </ul>
@@ -151,47 +227,6 @@ export class List extends Component {
 // PropTypes
 List.propTypes = {
   list: PropTypes.object.isRequired
-}
-
-const editListInputStyle = {
-  border: '1px solid transparent',
-  outline: 'none',
-  background: 'transparent',
-  fontFamily: "'Indie Flower', cursive",
-  fontSize: '1em',
-  marginTop: '-1em',
-  marginBottom: '-0.8em',
-  marginLeft: '-0.04em'
-}
-
-const submitAndCancelButtonStyle = {
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-1em',
-  marginBottom: '-0.8em',
-  marginLeft: '-0.04em'
-}
-
-const editButtonStyle = {
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-1em',
-  marginRight: '0em',
-  float: 'right'
-}
-
-const deleteButtonStyle = {
-  background: 'transparent',
-  border: '1px solid transparent',
-  outline: 'none',
-  cursor: 'pointer',
-  marginTop: '-1.1em',
-  marginRight: '1.55em',
-  float: 'right'
 }
 
 export default List;
