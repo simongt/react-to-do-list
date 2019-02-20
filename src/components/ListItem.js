@@ -1,6 +1,5 @@
 import React, { Component } from 'react'; // TO-DO: add createRef API
 import PropTypes from 'prop-types';
-// import { css, keyframes } from 'emotion';
 import SVGIcon from "./SVGIcon";
 
 export class ListItem extends Component {

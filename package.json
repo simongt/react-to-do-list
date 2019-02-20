@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://simongt.github.io/react-to-do-list/",
   "dependencies": {
-    "emotion": "^10.0.7",
     "gh-pages": "^2.0.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",

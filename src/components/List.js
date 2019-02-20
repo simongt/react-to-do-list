@@ -1,6 +1,5 @@
 import React, { Component } from 'react'; // TO-DO: add createRef API
 import PropTypes from 'prop-types';
-// import { css } from 'emotion';
 import ListItem from './ListItem';
 import AddItem from './AddItem';
 import SVGIcon from './SVGIcon';
