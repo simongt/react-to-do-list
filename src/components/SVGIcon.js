@@ -133,10 +133,10 @@ const getPath = (name, props) => {
 const SVGIcon = ({
   name = "",
   style = {},
-  fill = "#000",
+  fill = "#222",
   viewBox = "",
   width = "100%",
-  className = "",
+  className = "svg-icon",
   height = "100%"
 }) => (
     <svg

@@ -1,8 +1,10 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  box-sizing:         border-box;
+  -o-box-sizing:      border-box;
+  -ms-box-sizing:     border-box;
+  -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
 }
 
@@ -11,50 +13,15 @@ body {
   font-family: 'Indie Flower', cursive;
 }
 
-/* set padding to 0 to align <li>'s */
-/* set list-style to none to remove <li> bullets */
-.list ul {
-  border: 1px solid transparent;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.list {
-  margin: 0;
-  padding: 0;
-  line-height: 2em;
-}
-
-.list li {
-  border-bottom: 1px solid lightblue;
-}
-
-li.list-label {
-  color: #444;
-  font-size: 1.5em;
-  text-indent: 0.2em;
-  padding-top: 0.6em;
-  line-height: 0.7em;
-}
-
-li.item-description {
-  color: #222;
-  font-size: 1em;
-  text-indent: 0.4em;
-  padding-top: 1.2em;
-  line-height: 0.7em;
-}
-
 li.item-description:hover,
 li.list-label:hover {
   color: black;
 }
 
 .insert-new-list:hover,
-.lists li:hover {
-  background-color: #f8f8f8;
-
+.lists li:hover,
+input:hover {
+  background-color: #f0f0f0;
   transition:          all 0.2s;
   --o-transition:      all 0.2s;
   --ms-transition:     all 0.2s;
@@ -62,12 +29,14 @@ li.list-label:hover {
   --webkit-transition: all 0.2s;
 }
 
+.lists li:hover,
+.insert-new-list:hover,
 input:hover::placeholder {
   color: blue;
 }
 
 input:active::placeholder {
-  color: red;
+  color: blueviolet;
 }
 
 input:focus {
@@ -78,18 +47,3 @@ input:focus {
 .insert-new-list input[type="submit"] {
   display: none;
 }
-
-/* @keyframes strike {
-  from {
-    text-decoration-color: transparent;
-  }
-
-  to {
-    text-decoration-color: auto;
-  }
-}
-
-.strike {
-  text-decoration: line-through;
-  animation: strike 2s linear;
-} */
