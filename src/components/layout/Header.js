@@ -22,7 +22,7 @@ export class Header extends Component {
           <SVGIcon
             name="pencil-and-paper"
             width={25}
-            fill="#333"
+            fill="#444"
             style={{
               marginBottom: '-0.02em'
             }}

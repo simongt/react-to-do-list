@@ -4,7 +4,7 @@ import SVGIcon from "./SVGIcon";
 
 export class ListItem extends Component {
   state = {
-    itemDescription: this.props.item.description,
+    itemDescription: '',
     inputModeEnabled: false
   }
 
@@ -228,6 +228,18 @@ export class ListItem extends Component {
         </li>
       </div>
     );
+  }
+
+  componentDidMount = () => {
+    let { description } = this.props.item;
+    description = (
+      description === '' ?
+        'This to-do item is blank... click to update.' :
+        description
+    ).trim();
+    this.setState({
+      itemDescription: description
+    });
   }
 }
 

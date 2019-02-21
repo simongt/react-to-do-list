@@ -7,7 +7,7 @@ import SVGIcon from './SVGIcon';
 export class List extends Component {
 
   state = {
-    listLabel: this.props.list.label,
+    listLabel: '',
     inputModeEnabled: false
   }
 
@@ -220,6 +220,18 @@ export class List extends Component {
         </ul>
       </div>
     );
+  }
+
+  componentDidMount = () => {
+    let { label } = this.props.list;
+    label = (
+      label === '' ?
+        'This list label is blank... click to update.' :
+        label
+    ).trim();
+    this.setState({
+      listLabel: label
+    });
   }
 }
 
