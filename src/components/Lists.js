@@ -31,7 +31,7 @@ export class Lists extends Component {
 
   deleteList = listId => {
     this.setState(prevState => ({
-      lists: [...prevState.lists.filter(list => list.id !== listId)]
+      lists: [...prevState.lists.filter(list => (list.id !== listId))]
     }));
   }
 
@@ -77,7 +77,7 @@ export class Lists extends Component {
             description: itemDescription,
             isComplete: false
           }
-          list.items.push(newItem);
+          list.items = [...list.items, newItem];
         }
         return list;
       })
@@ -125,7 +125,13 @@ export class Lists extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({ lists: seed });
+    const localStorageLists = localStorage.getItem('lists');
+    // if local storage doesn't contain data, seed lists with sample data
+    if (!localStorageLists) {
+      this.setState({ lists: seed });
+    } else {
+      // TO-DO
+    }
   }
 }
 
