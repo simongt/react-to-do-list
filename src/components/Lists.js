@@ -2,61 +2,17 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import List from './List';
 import AddList from './AddList';
+import { seed } from './SeedLists';
 
 export class Lists extends Component {
 
-  state = {
-    lists: [{
-      id: uuid.v4(),
-      label: 'Personal',
-      items: [{
-        id: uuid.v4(),
-        description: 'Do laundry and fold clothes.',
-        isComplete: false
-      }, {
-        id: uuid.v4(),
-        description: 'Shovel snow off driveway and pour salt.',
-        isComplete: false
-      }, {
-        id: uuid.v4(),
-        description: 'Take car to get oil change and smog check.',
-        isComplete: false
-      }, {
-        id: uuid.v4(),
-        description: 'Prep lunch meals for week.',
-        isComplete: false
-      }]
-    }, {
-      id: uuid.v4(),
-      label: 'Family',
-      items: [{
-        id: uuid.v4(),
-        description: "Send flowers to wife for Valentine's Day.",
-        isComplete: false
-      }, {
-        id: uuid.v4(),
-        description: "Make appointment with son's teacher.",
-        isComplete: false
-      }]
-    }, {
-      id: uuid.v4(),
-      label: 'Work',
-      items: [{
-        id: uuid.v4(),
-        description: 'Respond to new emails.',
-        isComplete: false
-      }, {
-        id: uuid.v4(),
-        description: 'Follow up on existing tickets.',
-        isComplete: false
-      }, {
-        id: uuid.v4(),
-        description: 'Setup 1-on-1 meeting with manager.',
-        isComplete: false
-      }]
-    }]
+  constructor(props) {
+    super(props);
+    this.state = {
+      lists: []
+    };
   }
-
+  
   toggleItemCompletion = (listId, itemId) => {
     this.setState(prevState => ({
       lists: prevState.lists.map(list => {
@@ -143,7 +99,7 @@ export class Lists extends Component {
     }))
   }
 
-render() {
+  render() {
     const { lists } = this.state;
     return (
       <div>
@@ -166,6 +122,10 @@ render() {
         </div>
       </div>
     )
+  }
+
+  componentDidMount = () => {
+    this.setState({ lists: seed });
   }
 }
 

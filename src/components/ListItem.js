@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
 
 export class ListItem extends Component {
-  state = {
-    itemDescription: this.props.item.description,
-    inputModeEnabled: false
+  
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      itemDescription: '',
+      inputModeEnabled: false       
+    }
   }
-
+  
   crossOutCompletedItems = () => {
     const { item } = this.props;
     return item.isComplete ? scribbleOutItem : unscribbleOutItem;
@@ -228,6 +233,18 @@ export class ListItem extends Component {
         </li>
       </div>
     );
+  }
+
+  componentDidMount = () => {
+    let { description } = this.props.item;
+    description = (
+      description === '' ?
+        'This to-do item is blank... click to update.' :
+        description
+    ).trim();
+    this.setState({
+      itemDescription: description
+    });
   }
 }
 
