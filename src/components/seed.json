@@ -1,0 +1,65 @@
+[
+  {
+    "id": "12dcfc05-1b87-460f-a086-e32fa0d1a2ea",
+    "label": "Personal",
+    "items": [
+      {
+        "id": "90faf5b3-0fec-4318-8817-9831efd40673",
+        "description": "Do laundry and fold clothes.",
+        "isComplete": false
+      },
+      {
+        "id": "7dba44f0-648b-44a3-b3ab-6839547c8b18",
+        "description": "Shovel snow off driveway and pour salt.",
+        "isComplete": false
+      },
+      {
+        "id": "a316b634-c178-4b29-a460-162f65370b71",
+        "description": "Take car to get oil change and smog check.",
+        "isComplete": false
+      },
+      {
+        "id": "0c016402-d55f-45a5-96de-00cad9332891",
+        "description": "Prep lunch meals for week.",
+        "isComplete": false
+      }
+    ]
+  },
+  {
+    "id": "4bc04e35-9eaa-4b13-ba49-e0d9e0aa7aed",
+    "label": "Family",
+    "items": [
+      {
+        "id": "474471a8-8147-4b59-967b-b7c5e6a49e19",
+        "description": "Send flowers to wife for Valentine's Day.",
+        "isComplete": false
+      },
+      {
+        "id": "271966ee-055e-4678-95c2-d938ac05b7c6",
+        "description": "Make appointment with son's teacher.",
+        "isComplete": false
+      }
+    ]
+  },
+  {
+    "id": "722450e3-4d46-4ca5-a515-88239e686205",
+    "label": "Work",
+    "items": [
+      {
+        "id": "4ce80b77-3b2a-406d-942c-ea618124f373",
+        "description": "Respond to new emails.",
+        "isComplete": false
+      },
+      {
+        "id": "d19cdb47-e9e3-4d4e-b65d-81d3f0dafd53",
+        "description": "Follow up on existing tickets.",
+        "isComplete": false
+      },
+      {
+        "id": "92c3cbd3-3038-44b2-a9ff-71a9939956d5",
+        "description": "Setup 1-on-1 meeting with manager.",
+        "isComplete": false
+      }
+    ]
+  }
+]
