@@ -6,11 +6,15 @@ import SVGIcon from './SVGIcon';
 
 export class List extends Component {
 
-  state = {
-    listLabel: '',
-    inputModeEnabled: false
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      listLabel: '',
+      inputModeEnabled: false
+    }
   }
-
+  
   toggleInputMode = () => {
     this.setState(prevState => ({
       inputModeEnabled: !prevState.inputModeEnabled

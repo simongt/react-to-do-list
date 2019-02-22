@@ -2,18 +2,31 @@ import React, { Component } from 'react';
 import SVGIcon from '../SVGIcon';
 
 export class Header extends Component {
-  render() {
-    let date = new Date();
-    let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    let dayOfWeek = daysOfWeek[date.getDay()];
-    let dayOfMonth = date.getDate();
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    let month = months[date.getMonth()];
-    let year = date.getFullYear();
-    // let time = date.getTime();
-    // let hours = date.getHours();
-    // let minutes = date.getMinutes();
 
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      date: new Date(),
+      daysOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      dayOfWeek: '',
+      dayOfMonth: '',
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      month: '',
+      year: '',
+      time: '',
+      hours: '',
+      minutes: ''
+    }
+  }
+  
+  render() {
+    const {
+      dayOfWeek,
+      dayOfMonth,
+      month,
+      year,
+    } = this.state;
     return (
       <header className='app-header'>
         <div style={verticalRedLines} />
@@ -36,6 +49,24 @@ export class Header extends Component {
         </div>
       </header>
     )
+  }
+  
+  componentDidMount = () => {
+    const {
+      date,
+      daysOfWeek,
+      months,
+    } = this.state;
+    
+    this.setState({
+      dayOfWeek: daysOfWeek[date.getDay()],
+      dayOfMonth: date.getDate(),
+      month: months[date.getMonth()],
+      year: date.getFullYear(),
+      time: date.getTime(),
+      hours: date.getHours(),
+      minutes: date.getMinutes(),
+    })
   }
 }
 

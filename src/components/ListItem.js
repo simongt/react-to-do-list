@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
 
 export class ListItem extends Component {
-  state = {
-    itemDescription: '',
-    inputModeEnabled: false
+  
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      itemDescription: '',
+      inputModeEnabled: false       
+    }
   }
-
+  
   crossOutCompletedItems = () => {
     const { item } = this.props;
     return item.isComplete ? scribbleOutItem : unscribbleOutItem;

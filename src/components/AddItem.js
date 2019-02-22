@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import SVGIcon from "./SVGIcon";
 
 export class AddItem extends Component {
-  state = {
-    description: ''
-  }
 
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      description: ''
+    }
+  }
+  
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
