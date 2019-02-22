@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import List from './List';
 import AddList from './AddList';
-import { seed } from './SeedList';
+import { seed } from './SeedLists';
 
 export class Lists extends Component {
 
@@ -125,7 +125,7 @@ export class Lists extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({ lists: seed }); // seed lists with sample data
+    this.setState({ lists: seed });
   }
 }
 
