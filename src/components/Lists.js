@@ -101,7 +101,6 @@ export class Lists extends Component {
 
   render() {
     const { lists } = this.state;
-    const { browser } = this.props;
     return (
       <div>
         <AddList addList={this.addList} />

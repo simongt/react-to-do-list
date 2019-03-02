@@ -265,7 +265,7 @@ const scribbleOutItem = {
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'orangered',
-  webkitTextDecorationColor: 'orangered',
+  WebkitTextDecorationColor: 'orangered',
   transition: 'all 0.25s linear'
 }
 
@@ -279,7 +279,7 @@ const unscribbleOutItem = {
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'transparent',
-  webkitTextDecorationColor: 'transparent',
+  WebkitTextDecorationColor: 'transparent',
   transition: 'all 0.25s linear'
 }
 

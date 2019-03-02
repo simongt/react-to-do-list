@@ -29,8 +29,26 @@ export class Header extends Component {
     } = this.state;
     return (
       <header className='app-header'>
-        <div style={verticalRedLines} />
-        <div style={appTitleStyle}>
+        {/* left set of red lines to imitate the appearance of paper */}
+        <div style={{
+          borderLeft: '0.5px solid #ffaa9f',
+          borderRight: '0.5px solid #ffaa9f',
+          width: '0.2em',
+          height: '100vmax',
+          float: 'left',
+          marginLeft: '4em'
+        }} />
+        {/* add styling to app title so that it appears above paper's 1st line to the left */}
+        <div style={{
+          color: '#666',
+          fontSize: '3em',
+          margin: '0',
+          padding: '0',
+          textIndent: '0.1em',
+          paddingTop: '0.5em',
+          lineHeight: '0.8em',
+          borderBottom: '1px solid lightblue'
+        }}>
           {'To-Do List Manager '}
           <SVGIcon
             name="pencil-and-paper"
@@ -40,7 +58,13 @@ export class Header extends Component {
               marginBottom: '-0.02em'
             }}
           />
-          <div style={dateStyle}>
+          {/* add styling to date so that it appears above paper's 1st line to the right */}
+          <div className='date' style={{
+            float: 'right',
+            fontSize: '.5em',
+            marginRight: '.75em',
+            paddingTop: '1em'
+          }}>
             <span className='day-of-week'>{dayOfWeek + ', '}</span>
             <span className='month'>{month + ' '}</span>
             <span className='day-of-month'>{dayOfMonth + ', '}</span>
@@ -68,36 +92,6 @@ export class Header extends Component {
       minutes: date.getMinutes(),
     })
   }
-}
-
-// left set of red lines to imitate the appearance of paper
-const verticalRedLines = {
-  borderLeft: '0.5px solid #ffaa9f',
-  borderRight: '0.5px solid #ffaa9f',
-  width: '0.2em',
-  height: '100vmax',
-  float: 'left',
-  marginLeft: '4em'
-}
-
-// add styling to app title so that it appears above paper's 1st line to the left
-const appTitleStyle = {
-  color: '#666',
-  fontSize: '3em',
-  margin: '0',
-  padding: '0',
-  textIndent: '0.1em',
-  paddingTop: '0.5em',
-  lineHeight: '0.8em',
-  borderBottom: '1px solid lightblue'
-}
-
-// add styling to date so that it appears above paper's 1st line to the right
-const dateStyle = {
-  float: 'right',
-  fontSize: '.5em',
-  marginRight: '.75em',
-  paddingTop: '1em'
 }
 
 export default Header;
