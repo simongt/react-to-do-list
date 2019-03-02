@@ -120,6 +120,7 @@ export class List extends Component {
       deleteItem,
       editItem,
       deleteList,
+      browser
     } = this.props;
     const { inputModeEnabled } = this.state;
     const { id, items } = this.props.list;

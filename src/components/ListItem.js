@@ -9,7 +9,7 @@ export class ListItem extends Component {
   
     this.state = {
       itemDescription: '',
-      inputModeEnabled: false       
+      inputModeEnabled: false,
     }
   }
   
@@ -237,13 +237,15 @@ export class ListItem extends Component {
 
   componentDidMount = () => {
     let { description } = this.props.item;
+
     description = (
       description === '' ?
         'This to-do item is blank... click to update.' :
         description
     ).trim();
+    
     this.setState({
-      itemDescription: description
+      itemDescription: description,
     });
   }
 }
@@ -263,6 +265,7 @@ const scribbleOutItem = {
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'orangered',
+  webkitTextDecorationColor: 'orangered',
   transition: 'all 0.25s linear'
 }
 
@@ -276,6 +279,7 @@ const unscribbleOutItem = {
   textDecoration: 'line-through',
   textDecorationStyle: 'wavy',
   textDecorationColor: 'transparent',
+  webkitTextDecorationColor: 'transparent',
   transition: 'all 0.25s linear'
 }
 
