@@ -1,0 +1,10 @@
+@media (max-width: 719px) {
+  .date {
+    display: none;
+  }
+}
+@media (max-width: 516px) {
+  .title-icon {
+    display: none;
+  }
+}

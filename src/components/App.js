@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from './layout/Header';
 import Lists from './Lists';
-import './App.css';
+import '../stylesheets/style.css';
+import '../stylesheets/responsive.css';
 
 class App extends Component {
   render() {

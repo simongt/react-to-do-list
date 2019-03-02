@@ -51,6 +51,7 @@ export class Header extends Component {
         }}>
           {'To-Do List Manager '}
           <SVGIcon
+            className="title-icon"
             name="pencil-and-paper"
             width={25}
             fill="#444"
