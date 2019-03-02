@@ -26,13 +26,14 @@ export class ListItem extends Component {
 
   updateItemDescription = event => {
     const { editItem } = this.props;
-    const { id } = this.props.item;
+    const { id, description } = this.props.item;
     const { value } = this.refs.itemDescription; 
 
     // TO-DO: update string refs to use either callback refs or createRef API
 
     this.setState({
-      itemDescription: value
+      // catch empty value and revert to old description
+      itemDescription: value || description
     });
     
     this.toggleInputMode();
